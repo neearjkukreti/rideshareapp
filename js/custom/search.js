@@ -1,8 +1,8 @@
 app.controller('search', function($scope, $http) {
-  $scope.sample = function() {
+  /*$scope.sample = function() {
     alert('sample method called');
     console.log('sample method called');
-  }   
+  }*/   
   if(typeof(Storage) !== "undefined") {
       localStorage.setItem("rideSearchInput", rideSearchInput);
   }
@@ -23,9 +23,9 @@ app.controller('search', function($scope, $http) {
     else window.location='#/';
   }
 
-  $('[data-toggle=offcanvas]').click(function() {
+  /*$('[data-toggle=offcanvas]').click(function() {
     $('.row-offcanvas').toggleClass('active');
-  });
+  });*/
 
   
   $scope.sourceLat = rideSearchInput.to[1].geometry.location.k;
@@ -38,7 +38,7 @@ app.controller('search', function($scope, $http) {
   $scope.resultCount = 5;
   console.log(rideSearchInput);
   
-  var responsePromise = $http.get("/site/dummyservice/search.js");
+  var responsePromise = $http.get("/rideshareapp/dummyservice/search.js");
   responsePromise.success(function(data, status, headers, config) {
     $scope.sourceCity = data.basic.SourceCity;
     $scope.destinationCity = data.basic.DestinationCity;
