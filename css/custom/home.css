@@ -1,0 +1,31 @@
+.navbar-inverse {
+background-color: rgb(30, 94, 147);
+border-color: rgb(30, 94, 147);
+}
+
+.navbar-inverse .navbar-nav>li>a {
+color: aliceblue;
+font-weight: 500;
+}
+
+.navbar-brand{
+color: aliceblue;
+}
+#searchBoxContainer{
+/*background: cornflowerblue;*/
+height: 69px;
+margin-bottom: 20px;
+}
+#searchBox{
+
+}
+@media (max-width: 700px) {
+ #myCarousel{
+    display: none;
+  }
+}
+  @media (max-width: 1000px) {
+  #searchBoxContainer {
+    margin-bottom: 150px;
+  }
+  }
