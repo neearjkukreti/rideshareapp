@@ -21,28 +21,38 @@ app.config(function($stateProvider, $urlRouterProvider,FacebookProvider) {
                     templateUrl:'view/rideDetail.html',
                     controller: 'rideDetail'
         })
-        .state('postRide',{
+        /*.state('postRide',{
                     url:'/postRide',
                     templateUrl:'view/postRide.html',
                     controller: 'postRide'
-        })
+        })*/
         .state('userDashboard',{
                     url:'/userDashboard',
                     templateUrl:'view/userDashboard.html',
                     controller: 'userDashboard'
         })
-        .state('userDashboard.accountDetail',{
-                    url:'/:accountDetail',
-                    templateUrl:'view/accountDetail.html',
-                    controller: 'accountDetail'
+        .state('userDashboard.myRide',{
+                    url:'/myRide',
+                    templateUrl:'view/myRide.html',
+                    controller: 'myRide'
         })
-        .state('userDashboard.dashboardTools',{
-                    url:'/:dashboardTools',
-                    templateUrl:'view/dashboardTools.html',
-                    controller: 'dashboardTools'
+        .state('userDashboard.offerRide',{
+                    url:'/offerRide',
+                    templateUrl:'view/offerRide.html',
+                    controller: 'offerRide'
+        })
+        .state('userDashboard.profile',{
+        			url:'/profile',
+        			templateUrl:'view/profile.html',
+        			controller: 'profile'
+        })
+        .state('userDashboard.messages',{
+        			url:'/messages',
+        			templateUrl:'view/messages.html',
+        			controller: 'messages'
         });
         
-        $urlRouterProvider.otherwise('/');       
+        //$urlRouterProvider.otherwise('/');       
 });
 
 /*app.config(function($routeProvider,FacebookProvider) {

@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngAutocompletemap','ngMap','facebook','ui.router']);
+var app = angular.module('myApp', ['ngAutocompletemap','ngMap','facebook','ui.router','ui.bootstrap']);
 /*Routing in route.js*/
 
 /*Config FB App ID*/
@@ -9,6 +9,10 @@ app.config([
      FacebookProvider.init(myAppId);     
     }
 ]);
+
+app.run(function($rootScope, $location) {
+    $rootScope.location = $location;
+});
 
 /*Root variables*/
 var rideSearchInput = {};
