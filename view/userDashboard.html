@@ -21,22 +21,22 @@
         <div class="row">
             <div class="col-md-3">
           <ul class="nav nav-pills nav-stacked" id="leftTabs">                                                                                
-            <li role="presentation" class="active">                                                                                         
+            <li role="presentation" ng-class="getClass('/offerRide')">                                                                                         
               <a href="#{{currentPath}}/offerRide">Offer Ride</a>                                                                             
             </li>                                                                                
-            <li role="presentation">                                                                                         
+            <li role="presentation"  ng-class="getClass('/myRide')">                                                                                         
               <a href="#{{currentPath}}/myRide">My Rides</a>                                                                             
             </li>                                                                                
-            <li role="presentation">                                                                                         
+            <li role="presentation"  ng-class="getClass('/profile')">                                                                                         
               <a href="#{{currentPath}}/profile">Profile</a>                                                                             
             </li>                                                                             
-            <li role="presentation">                                                                                         
+            <li role="presentation"  ng-class="getClass('/messages')">                                                                                         
               <a href="#{{currentPath}}/messages">Messages</a>                                                                             
             </li>                                                                                    
           </ul>
             </div>
             <div class="col-md-9">
-				<div class="container"><ui-view/></div>
+				<div class="container full_width"><ui-view/></div>
             </div>
         </div>
 

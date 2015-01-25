@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngAutocompletemap','ngMap','facebook','ui.router','ui.bootstrap']);
+var app = angular.module('myApp', ['ui.bootstrap','ngAutocompletemap','ngMap','facebook','ui.router']);
 /*Routing in route.js*/
 
 /*Config FB App ID*/
