@@ -36,7 +36,23 @@
                         <input ng-model="phone" type="number" name="" placeholder="+91-987654321" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-maxlength ng-valid-minlength" id="" value="" ng-minlength="10" ng-maxlength="10">                                                                                         
                       </div>                                                                                   
                     </div>
-                     <div class=" col-lg-12">                                                                                         
+                    
+                    <div class=" col-lg-12">
+                      <div class=" col-lg-2">                    <strong>Gender:</strong> 				                                                                                          
+                      </div>                                                                                         
+                      <div class=" col-lg-4">                                                                                                 
+                        <div>
+						    <div class="btn-group" style="margin-bottom: 10px;">
+						        <label class="btn btn-success" ng-model="gender" btn-radio="'Male'" uncheckable>Male</label>
+						        <label class="btn btn-success" ng-model="gender" btn-radio="'Female'" uncheckable>Female</label>
+						        <label class="btn btn-success" ng-model="gender" btn-radio="'Other'" uncheckable>Other</label>
+						    </div>
+						</div>                                                                                         
+                      </div>                                                                                   
+                    </div>
+                    
+                    
+                    <div class=" col-lg-12">                                                                                         
                       <div class=" col-lg-2">                    <strong>Birth Date</strong> 				                                                                                          
                       </div>                                                                                         
                       <div class=" col-lg-8">                                                                                                 

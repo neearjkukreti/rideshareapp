@@ -52,7 +52,7 @@ app.config(function($stateProvider, $urlRouterProvider,FacebookProvider) {
         			controller: 'messages'
         });
         
-        //$urlRouterProvider.otherwise('/');       
+        $urlRouterProvider.otherwise('/');       
 });
 
 /*app.config(function($routeProvider,FacebookProvider) {
