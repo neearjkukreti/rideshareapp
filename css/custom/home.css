@@ -33,3 +33,21 @@ margin-bottom: 20px;
 .full_width {
 width: 100%;
 }
+.form-control{
+margin-bottom: 10px;
+border-left-width: 8px;
+}
+
+#nextPrev button {
+margin-left: 12px;
+margin-bottom: 10px;
+}
+
+input[required].ng-pristine {
+border-right-color: red;
+border-right-width: 2px;
+}
+
+input.ng-invalid.ng-dirty {
+border-color: #e74c3c;
+}

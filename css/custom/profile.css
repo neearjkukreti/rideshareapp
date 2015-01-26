@@ -1,0 +1,32 @@
+.leftAlign {
+float: right;
+}
+
+#ncaTabFormContainer{
+clear: both;
+}
+
+#ncaTabFormContainer li{
+display:none;
+}
+
+.hideMe {
+    display: none;
+}
+
+
+
+#callout-inline-form-width{
+clear: both;
+}
+
+.bs-callout {
+padding: 7px;
+margin: 0px 0;
+}
+.errorBox {
+color: red;
+margin-top: 8px;
+font-size: 18px;
+display: none;
+}
