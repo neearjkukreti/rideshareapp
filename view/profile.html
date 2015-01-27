@@ -1,11 +1,13 @@
+<div ng-hide="{{firstTimeUser}}">Enter you profile info</div>
+<form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" role="form" novalidation="" name="form">
 <tabset>
     <tab heading="Personal Info">
     	<!-- Personal Info Form -->
     	<div>                                                    
-          <ul class="nav" id="ncaTabFormContainer" "="">                                      
+          <ul class="nav" id="profileTabFormContainer" "="">                                      
             <li id="section1" style="display: list-item;">
             <br />                                                                                                                           
-              <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" role="form" novalidation="" name="form">                                                                                                 
+                                                                                                               
                 <div class="">                                                                                                                                         
                   <div class="col-md-12">				 				 				                                                                                    
                     <div class=" col-lg-12">                                                                                         
@@ -16,10 +18,10 @@
                         <select ng-model="initial.value" ng-options="v for v in initial.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">Mr.</option><option value="1">Mrs.</option><option value="2">Doc.</option><option value="3">Eng.</option></select>                                                                                                                   
                       </div>-->                                                                                           
                       <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="firstName" type="" name="" placeholder="First Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
+                        <input ng-model="userObj.firstName" type="" name="" placeholder="First Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
                       </div>                                                                                           
                       <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="lastName" type="" name="" placeholder="Last Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
+                        <input ng-model="userObj.lastName" type="" name="" placeholder="Last Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
                       </div>				                                                                                    
                     </div>                                                                                                                             
                     <div class=" col-lg-12">                                                                                         
@@ -73,8 +75,7 @@
                     </div>
                     <button type="button" class="btn btn-primary leftAlign " ng-click="loadNext()">Save</button>                    			 				 				 								 			 			                                                                            
                   </div>                                                                                     
-                </div>                                                                                                        
-              </form>                                                                             
+                </div>                                                                             
             </li>                                                                                                                                
           </ul>
           <hr>                                                                             
@@ -82,7 +83,95 @@
     	<!-- End of personal Info Form -->
     </tab>
     <tab heading="Preferences">
-    	Content for preferences selection
+    	<!--<div>
+    		<rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+    		<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+		</div>
+		-->
+		<!-- Start of Preferences -->
+    	<div>                                                    
+          <ul class="nav" id="profileTabFormContainer" "="">                                      
+            <li id="section1" style="display: list-item;">
+            <br />                                                                                                                           
+                                                                                                               
+                <div class="">                                                                                                                                         
+                  <div class="col-md-12">                                        
+                    <div class=" col-lg-12">
+                      <div class=" col-lg-2">                    
+                      	<strong>Chat:</strong> 				                                                                                          
+                      </div>                                                                                         
+                      <div class=" col-lg-6">                                                                                                 
+                        <div>
+						    <div class="btn-group" style="margin-bottom: 10px;">
+						        <label class="btn btn-success" ng-model="chat" btn-radio="'reserved'" uncheckable>Reserved</label>
+						        <label class="btn btn-success" ng-model="chat" btn-radio="'moody'" uncheckable>Moody</label>
+						        <label class="btn btn-success" ng-model="chat" btn-radio="'talkative'" uncheckable>Talkative</label>
+						    </div>
+						</div>                                                                                         
+                      </div>                                                                                                         
+                    </div>
+                    <div class=" col-lg-12">
+                      <div class=" col-lg-2">                    
+                      	<strong>Music:</strong> 				                                                                                          
+                      </div>                                                                                         
+                      <div class=" col-lg-6">                                                                                                 
+                        <div>
+						    <div class="btn-group" style="margin-bottom: 10px;">
+						        <label class="btn btn-success" ng-model="music" btn-radio="'no'" uncheckable>No Music</label>
+						        <label class="btn btn-success" ng-model="music" btn-radio="'like'" uncheckable>Like Music</label>
+						        <label class="btn btn-success" ng-model="music" btn-radio="'love'" uncheckable>Love Music</label>
+						    </div>
+						</div>                                                                                         
+                      </div>                                                                                                         
+                    </div>
+                    <div class=" col-lg-12">
+                      <div class=" col-lg-2">                    
+                      	<strong>Smoke:</strong> 				                                                                                          
+                      </div>                                                                                         
+                      <div class=" col-lg-6">                                                                                                 
+                        <div>
+						    <div class="btn-group" style="margin-bottom: 10px;">
+						        <label class="btn btn-success" ng-model="smoke" btn-radio="'no'" uncheckable>Not Allowd</label>
+						        <label class="btn btn-success" ng-model="smoke" btn-radio="'yes'" uncheckable>Allowed</label>
+						    </div>
+						</div>                                                                                         
+                      </div>                                                                                                         
+                    </div>
+                    <div class=" col-lg-12">
+                      <div class=" col-lg-2">                    
+                      	<strong>Food</strong> 				                                                                                          
+                      </div>                                                                                         
+                      <div class=" col-lg-6">                                                                                                 
+                        <div>
+						    <div class="btn-group" style="margin-bottom: 10px;">
+						        <label class="btn btn-success" ng-model="food" btn-radio="'no'" uncheckable>No Food in car</label>
+						        <label class="btn btn-success" ng-model="food" btn-radio="'yes'" uncheckable>No littering</label>
+						    </div>
+						</div>                                                                                         
+                      </div>                                                                                                         
+                    </div>
+                    <div class=" col-lg-12">
+                      <div class=" col-lg-2">                    
+                      	<strong>Pet</strong> 				                                                                                          
+                      </div>                                                                                         
+                      <div class=" col-lg-6">                                                                                                 
+                        <div>
+						    <div class="btn-group" style="margin-bottom: 10px;">
+						        <label class="btn btn-success" ng-model="pet" btn-radio="'no'" uncheckable>Not Allowed</label>
+						        <label class="btn btn-success" ng-model="pet" btn-radio="'yes'" uncheckable>Not Allowed</label>
+						    </div>
+						</div>                                                                                         
+                      </div>                                                                                                         
+                    </div>
+                    <button type="button" class="btn btn-primary leftAlign " ng-click="loadNext()">Save</button>                    			 				 				 								 			 			                                                                            
+                  </div>                                                                                     
+                </div>                                                                             
+            </li>                                                                                                                                
+          </ul>
+          <hr>                                                                             
+        </div>
+    	<!-- End of personal Info Form -->
+		<!-- End of preferences -->
     </tab>
     <tab heading="Add Car">
     	Option to add car
@@ -95,3 +184,4 @@
     </tab>
      -->
 </tabset>
+</form>
