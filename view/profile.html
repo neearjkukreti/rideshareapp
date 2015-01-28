@@ -18,24 +18,24 @@
                         <select ng-model="initial.value" ng-options="v for v in initial.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">Mr.</option><option value="1">Mrs.</option><option value="2">Doc.</option><option value="3">Eng.</option></select>                                                                                                                   
                       </div>-->                                                                                           
                       <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="userObj.firstName" type="" name="" placeholder="First Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
+                        <input ng-model="userObj.firstname" type="" name="" placeholder="First Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
                       </div>                                                                                           
                       <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="userObj.lastName" type="" name="" placeholder="Last Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
+                        <input ng-model="userObj.lastname" type="" name="" placeholder="Last Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
                       </div>				                                                                                    
                     </div>                                                                                                                             
                     <div class=" col-lg-12">                                                                                         
                       <div class=" col-lg-2">                    <strong>Email:</strong> 				                                                                                          
                       </div>                                                                                         
                       <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="email" type="email" name="" placeholder="email@domain.com" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-email" id="" value="" required="">                                                                                         
+                        <input ng-model="userObj.email_id" type="email" name="" placeholder="email@domain.com" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-email" id="" value="" required="">                                                                                         
                       </div>                                                                                   
                     </div>
                     <div class=" col-lg-12">
                       <div class=" col-lg-2">                    <strong>Mobile:</strong> 				                                                                                          
                       </div>                                                                                         
                       <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="phone" type="number" name="" placeholder="+91-987654321" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-maxlength ng-valid-minlength" id="" value="" ng-minlength="10" ng-maxlength="10">                                                                                         
+                        <input ng-model="userObj.mobile" type="number" name="" placeholder="+91-987654321" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-maxlength ng-valid-minlength" id="" value="" ng-minlength="10" ng-maxlength="10">                                                                                         
                       </div>                                                                                   
                     </div>
                     
@@ -45,35 +45,32 @@
                       <div class=" col-lg-4">                                                                                                 
                         <div>
 						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="gender" btn-radio="'Male'" uncheckable>Male</label>
-						        <label class="btn btn-success" ng-model="gender" btn-radio="'Female'" uncheckable>Female</label>
-						        <label class="btn btn-success" ng-model="gender" btn-radio="'Other'" uncheckable>Other</label>
+						        <label class="btn btn-success" ng-model="userObj.gender" btn-radio="'Male'" uncheckable>Male</label>
+						        <label class="btn btn-success" ng-model="userObj.gender" btn-radio="'Female'" uncheckable>Female</label>
+						        <label class="btn btn-success" ng-model="userObj.gender" btn-radio="'Other'" uncheckable>Other</label>
 						    </div>
 						</div>                                                                                         
                       </div>                                                                                   
                     </div>
-                    
-                    
                     <div class=" col-lg-12">                                                                                         
                       <div class=" col-lg-2">                    <strong>Birth Date</strong> 				                                                                                          
                       </div>                                                                                         
                       <div class=" col-lg-8">                                                                                                 
-                        <input ng-model="dob" type="text" name="dob" placeholder="MM/DD/YYYY" class="form-control" id="" value=""
-                        ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d|[2-9]\d{3})$/" required
-                        >                                                                                         
+                        <input ng-model="userObj.dob" type="text" name="dob" placeholder="MM/DD/YYYY" class="form-control" id="" value=""
+                        required >                                                                                         
                       </div>                                                                                   
                     </div>
                     <div class=" col-lg-12">                                                                                         
                       <div class=" col-lg-2">                    <strong>Language Known</strong>                                                                                           
                       </div>										                                                                                            
                       <div class=" col-lg-6">                                                                                                                                                                                                                         
-                        <input ng-model="language.value" type="" name="" placeholder="English, Hindi, Tamil" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">
+                        <input ng-model="userObj.lang_known" type="" name="" placeholder="English, Hindi, Tamil" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">
                         <!-- 
                         <select ng-model="language.value" ng-options="v for v in language.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">English</option><option value="1">French</option><option value="2">Hindi</option><option value="3">Urdu</option><option value="4">Spanish</option></select><input ng-model="taxID" type="" name="" placeholder="Personal/Tax ID" class="form-control ng-pristine ng-valid" id="" value="">
                         -->                                                                                         
                       </div>                                                                                   
                     </div>
-                    <button type="button" class="btn btn-primary leftAlign " ng-click="loadNext()">Save</button>                    			 				 				 								 			 			                                                                            
+                    <button type="button" class="btn btn-primary leftAlign " ng-click="saveProfile()">Save</button>                    			 				 				 								 			 			                                                                            
                   </div>                                                                                     
                 </div>                                                                             
             </li>                                                                                                                                
@@ -103,9 +100,9 @@
                       <div class=" col-lg-6">                                                                                                 
                         <div>
 						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="chat" btn-radio="'reserved'" uncheckable>Reserved</label>
-						        <label class="btn btn-success" ng-model="chat" btn-radio="'moody'" uncheckable>Moody</label>
-						        <label class="btn btn-success" ng-model="chat" btn-radio="'talkative'" uncheckable>Talkative</label>
+						        <label class="btn btn-success" ng-model="userObj.chat" btn-radio="'0'" uncheckable>Reserved</label>
+						        <label class="btn btn-success" ng-model="userObj.chat" btn-radio="'1'" uncheckable>Moody</label>
+						        <label class="btn btn-success" ng-model="userObj.chat" btn-radio="'2'" uncheckable>Talkative</label>
 						    </div>
 						</div>                                                                                         
                       </div>                                                                                                         
@@ -117,9 +114,9 @@
                       <div class=" col-lg-6">                                                                                                 
                         <div>
 						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="music" btn-radio="'no'" uncheckable>No Music</label>
-						        <label class="btn btn-success" ng-model="music" btn-radio="'like'" uncheckable>Like Music</label>
-						        <label class="btn btn-success" ng-model="music" btn-radio="'love'" uncheckable>Love Music</label>
+						        <label class="btn btn-success" ng-model="userObj.music" btn-radio="'0'" uncheckable>No Music</label>
+						        <label class="btn btn-success" ng-model="userObj.music" btn-radio="'1'" uncheckable>Like Music</label>
+						        <label class="btn btn-success" ng-model="userObj.music" btn-radio="'2'" uncheckable>Love Music</label>
 						    </div>
 						</div>                                                                                         
                       </div>                                                                                                         
@@ -131,8 +128,8 @@
                       <div class=" col-lg-6">                                                                                                 
                         <div>
 						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="smoke" btn-radio="'no'" uncheckable>Not Allowd</label>
-						        <label class="btn btn-success" ng-model="smoke" btn-radio="'yes'" uncheckable>Allowed</label>
+						        <label class="btn btn-success" ng-model="userObj.smoking" btn-radio="'0'" uncheckable>Not Allowd</label>
+						        <label class="btn btn-success" ng-model="userObj.smoking" btn-radio="'1'" uncheckable>Allowed</label>
 						    </div>
 						</div>                                                                                         
                       </div>                                                                                                         
@@ -144,8 +141,8 @@
                       <div class=" col-lg-6">                                                                                                 
                         <div>
 						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="food" btn-radio="'no'" uncheckable>No Food in car</label>
-						        <label class="btn btn-success" ng-model="food" btn-radio="'yes'" uncheckable>No littering</label>
+						        <label class="btn btn-success" ng-model="userObj.food" btn-radio="'0'" uncheckable>No Food in car</label>
+						        <label class="btn btn-success" ng-model="userObj.food" btn-radio="'1'" uncheckable>No littering</label>
 						    </div>
 						</div>                                                                                         
                       </div>                                                                                                         
@@ -157,13 +154,13 @@
                       <div class=" col-lg-6">                                                                                                 
                         <div>
 						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="pet" btn-radio="'no'" uncheckable>Not Allowed</label>
-						        <label class="btn btn-success" ng-model="pet" btn-radio="'yes'" uncheckable>Not Allowed</label>
+						        <label class="btn btn-success" ng-model="userObj.pet" btn-radio="'0'" uncheckable>Not Allowed</label>
+						        <label class="btn btn-success" ng-model="userObj.pet" btn-radio="'1'" uncheckable>Not Allowed</label>
 						    </div>
 						</div>                                                                                         
                       </div>                                                                                                         
                     </div>
-                    <button type="button" class="btn btn-primary leftAlign " ng-click="loadNext()">Save</button>                    			 				 				 								 			 			                                                                            
+                    <button type="button" class="btn btn-primary leftAlign " ng-click="saveProfile()">Save</button>                    			 				 				 								 			 			                                                                            
                   </div>                                                                                     
                 </div>                                                                             
             </li>                                                                                                                                

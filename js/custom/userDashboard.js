@@ -1,7 +1,6 @@
 app.controller('userDashboard', function($scope, $location, user) {
 	//console.log(user);
-	JSON.stringify(fbObject);
-	$scope.fbObject = user.currentUser;//fbObject;
+	$scope.userObject = user.getCurrentUser();//fbObject;
 	$scope.currentPath = $location.path();
 	$scope.oneAtATime = true;
 	$scope.firstTimeUser = false;
@@ -12,10 +11,10 @@ app.controller('userDashboard', function($scope, $location, user) {
   //if(newuser){
     //load registration form for remaining info
     //window.location='#/userDashboard/profile';
-	if(localStorage.firstTimeUser == 'true'){
+	if(user.firstTime == 'true'){
 		$location.path($location.path() + "/profile");
 		$scope.firstTimeUser = true;
-		localStorage.firstTimeUser = false;
+		user.firstTime = false;
 	}
 	else {
 		$location.path($location.path() + "/offerRide");
