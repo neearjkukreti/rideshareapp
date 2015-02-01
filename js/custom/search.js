@@ -38,7 +38,7 @@ app.controller('search', function($scope, $http) {
   $scope.resultCount = 5;
   console.log(rideSearchInput);
   
-  var responsePromise = $http.get("/rideshareapp/dummyservice/search.js");
+  var responsePromise = $http.get("/site/dummyservice/search.js");
   responsePromise.success(function(data, status, headers, config) {
     $scope.sourceCity = data.basic.SourceCity;
     $scope.destinationCity = data.basic.DestinationCity;

@@ -1,184 +1,275 @@
-<div ng-hide="{{firstTimeUser}}">Enter you profile info</div>
+<div ng-hide="{{firstTimeUser}}">Enter you profile info
+</div>
 <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" role="form" novalidation="" name="form">
-<tabset>
-    <tab heading="Personal Info">
-    	<!-- Personal Info Form -->
-    	<div>                                                    
-          <ul class="nav" id="profileTabFormContainer" "="">                                      
-            <li id="section1" style="display: list-item;">
-            <br />                                                                                                                           
-                                                                                                               
-                <div class="">                                                                                                                                         
-                  <div class="col-md-12">				 				 				                                                                                    
-                    <div class=" col-lg-12">                                                                                         
-                      <div class=" col-lg-2">
-						<strong>Name:</strong>                                                                                           
-                      </div>										                                                                                            
-                      <!--<div class=" col-lg-2">                                                                                                
-                        <select ng-model="initial.value" ng-options="v for v in initial.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">Mr.</option><option value="1">Mrs.</option><option value="2">Doc.</option><option value="3">Eng.</option></select>                                                                                                                   
-                      </div>-->                                                                                           
-                      <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="userObj.firstname" type="" name="" placeholder="First Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
-                      </div>                                                                                           
-                      <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="userObj.lastname" type="" name="" placeholder="Last Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                           
-                      </div>				                                                                                    
-                    </div>                                                                                                                             
-                    <div class=" col-lg-12">                                                                                         
-                      <div class=" col-lg-2">                    <strong>Email:</strong> 				                                                                                          
-                      </div>                                                                                         
-                      <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="userObj.email_id" type="email" name="" placeholder="email@domain.com" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-email" id="" value="" required="">                                                                                         
-                      </div>                                                                                   
-                    </div>
-                    <div class=" col-lg-12">
-                      <div class=" col-lg-2">                    <strong>Mobile:</strong> 				                                                                                          
-                      </div>                                                                                         
-                      <div class=" col-lg-4">                                                                                                 
-                        <input ng-model="userObj.mobile" type="number" name="" placeholder="+91-987654321" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-maxlength ng-valid-minlength" id="" value="" ng-minlength="10" ng-maxlength="10">                                                                                         
-                      </div>                                                                                   
-                    </div>
-                    
-                    <div class=" col-lg-12">
-                      <div class=" col-lg-2">                    <strong>Gender:</strong> 				                                                                                          
-                      </div>                                                                                         
-                      <div class=" col-lg-4">                                                                                                 
-                        <div>
-						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="userObj.gender" btn-radio="'Male'" uncheckable>Male</label>
-						        <label class="btn btn-success" ng-model="userObj.gender" btn-radio="'Female'" uncheckable>Female</label>
-						        <label class="btn btn-success" ng-model="userObj.gender" btn-radio="'Other'" uncheckable>Other</label>
-						    </div>
-						</div>                                                                                         
-                      </div>                                                                                   
-                    </div>
-                    <div class=" col-lg-12">                                                                                         
-                      <div class=" col-lg-2">                    <strong>Birth Date</strong> 				                                                                                          
-                      </div>                                                                                         
-                      <div class=" col-lg-8">                                                                                                 
-                        <input ng-model="userObj.dob" type="text" name="dob" placeholder="MM/DD/YYYY" class="form-control" id="" value=""
-                        required >                                                                                         
-                      </div>                                                                                   
-                    </div>
-                    <div class=" col-lg-12">                                                                                         
-                      <div class=" col-lg-2">                    <strong>Language Known</strong>                                                                                           
-                      </div>										                                                                                            
-                      <div class=" col-lg-6">                                                                                                                                                                                                                         
-                        <input ng-model="userObj.lang_known" type="" name="" placeholder="English, Hindi, Tamil" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">
-                        <!-- 
-                        <select ng-model="language.value" ng-options="v for v in language.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">English</option><option value="1">French</option><option value="2">Hindi</option><option value="3">Urdu</option><option value="4">Spanish</option></select><input ng-model="taxID" type="" name="" placeholder="Personal/Tax ID" class="form-control ng-pristine ng-valid" id="" value="">
-                        -->                                                                                         
-                      </div>                                                                                   
-                    </div>
-                    <button type="button" class="btn btn-primary leftAlign " ng-click="saveProfile()">Save</button>                    			 				 				 								 			 			                                                                            
-                  </div>                                                                                     
-                </div>                                                                             
-            </li>                                                                                                                                
-          </ul>
-          <hr>                                                                             
-        </div>
-    	<!-- End of personal Info Form -->
-    </tab>
-    <tab heading="Preferences">
-    	<!--<div>
-    		<rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
-    		<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
-		</div>
-		-->
-		<!-- Start of Preferences -->
-    	<div>                                                    
-          <ul class="nav" id="profileTabFormContainer" "="">                                      
-            <li id="section1" style="display: list-item;">
-            <br />                                                                                                                           
-                                                                                                               
-                <div class="">                                                                                                                                         
-                  <div class="col-md-12">                                        
-                    <div class=" col-lg-12">
-                      <div class=" col-lg-2">                    
-                      	<strong>Chat:</strong> 				                                                                                          
-                      </div>                                                                                         
-                      <div class=" col-lg-6">                                                                                                 
-                        <div>
-						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="userObj.chat" btn-radio="'0'" uncheckable>Reserved</label>
-						        <label class="btn btn-success" ng-model="userObj.chat" btn-radio="'1'" uncheckable>Moody</label>
-						        <label class="btn btn-success" ng-model="userObj.chat" btn-radio="'2'" uncheckable>Talkative</label>
-						    </div>
-						</div>                                                                                         
-                      </div>                                                                                                         
-                    </div>
-                    <div class=" col-lg-12">
-                      <div class=" col-lg-2">                    
-                      	<strong>Music:</strong> 				                                                                                          
-                      </div>                                                                                         
-                      <div class=" col-lg-6">                                                                                                 
-                        <div>
-						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="userObj.music" btn-radio="'0'" uncheckable>No Music</label>
-						        <label class="btn btn-success" ng-model="userObj.music" btn-radio="'1'" uncheckable>Like Music</label>
-						        <label class="btn btn-success" ng-model="userObj.music" btn-radio="'2'" uncheckable>Love Music</label>
-						    </div>
-						</div>                                                                                         
-                      </div>                                                                                                         
-                    </div>
-                    <div class=" col-lg-12">
-                      <div class=" col-lg-2">                    
-                      	<strong>Smoke:</strong> 				                                                                                          
-                      </div>                                                                                         
-                      <div class=" col-lg-6">                                                                                                 
-                        <div>
-						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="userObj.smoking" btn-radio="'0'" uncheckable>Not Allowd</label>
-						        <label class="btn btn-success" ng-model="userObj.smoking" btn-radio="'1'" uncheckable>Allowed</label>
-						    </div>
-						</div>                                                                                         
-                      </div>                                                                                                         
-                    </div>
-                    <div class=" col-lg-12">
-                      <div class=" col-lg-2">                    
-                      	<strong>Food</strong> 				                                                                                          
-                      </div>                                                                                         
-                      <div class=" col-lg-6">                                                                                                 
-                        <div>
-						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="userObj.food" btn-radio="'0'" uncheckable>No Food in car</label>
-						        <label class="btn btn-success" ng-model="userObj.food" btn-radio="'1'" uncheckable>No littering</label>
-						    </div>
-						</div>                                                                                         
-                      </div>                                                                                                         
-                    </div>
-                    <div class=" col-lg-12">
-                      <div class=" col-lg-2">                    
-                      	<strong>Pet</strong> 				                                                                                          
-                      </div>                                                                                         
-                      <div class=" col-lg-6">                                                                                                 
-                        <div>
-						    <div class="btn-group" style="margin-bottom: 10px;">
-						        <label class="btn btn-success" ng-model="userObj.pet" btn-radio="'0'" uncheckable>Not Allowed</label>
-						        <label class="btn btn-success" ng-model="userObj.pet" btn-radio="'1'" uncheckable>Not Allowed</label>
-						    </div>
-						</div>                                                                                         
-                      </div>                                                                                                         
-                    </div>
-                    <button type="button" class="btn btn-primary leftAlign " ng-click="saveProfile()">Save</button>                    			 				 				 								 			 			                                                                            
-                  </div>                                                                                     
-                </div>                                                                             
-            </li>                                                                                                                                
-          </ul>
-          <hr>                                                                             
-        </div>
-    	<!-- End of personal Info Form -->
-		<!-- End of preferences -->
-    </tab>
-    <tab heading="Add Car">
-    	Option to add car
-    </tab>
+  <tabset>    
+    <tab heading="Personal Info">    	
+      <!-- Personal Info Form -->    	
+      <div>                                                               
+        <ul class="nav" id="profileTabFormContainer" "="">                                                   
+          <li id="section1" style="display: list-item;">            <br />                                                                                                                                                                                                                                                            
+            <div class="">                                                                                                                                                            
+              <div class="col-md-12">				 				 				                                                                                                         
+                <div class=" col-lg-12">                                                                                                                
+                  <div class=" col-lg-2">						<strong>Name:</strong>                                                                                                                  
+                  </div>										                                                                                                                   
+                  <!--<div class=" col-lg-2">                                                                                                
+                                          <select ng-model="initial.value" ng-options="v for v in initial.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">Mr.</option><option value="1">Mrs.</option><option value="2">Doc.</option><option value="3">Eng.</option></select>                                                                                                                   
+                                        </div>-->                                                                                                                   
+                  <div class=" col-lg-4">                                                                                                                          
+                    <input ng-model="userObj.firstname" type="" name="" placeholder="First Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
+                  </div>                                                                                                                  
+                  <div class=" col-lg-4">                                                                                                                          
+                    <input ng-model="userObj.lastname" type="" name="" placeholder="Last Name" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
+                  </div>				                                                                                                         
+                </div>                                                                                                                                                  
+                <div class=" col-lg-12">                                                                                                                
+                  <div class=" col-lg-2">                    <strong>Email:</strong> 				                                                                                                                 
+                  </div>                                                                                                                
+                  <div class=" col-lg-4">                                                                                                                          
+                    <input ng-model="userObj.email_id" type="email" name="" placeholder="email@domain.com" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-email" id="" value="" required="">                                                                                                                
+                  </div>                                                                                                        
+                </div>                    
+                <div class=" col-lg-12">                      
+                  <div class=" col-lg-2">                    <strong>Mobile:</strong> 				                                                                                                                 
+                  </div>                                                                                                                
+                  <div class=" col-lg-4">                                                                                                                          
+                    <input ng-model="userObj.mobile" type="number" name="" placeholder="+91-987654321" class="form-control ng-pristine ng-valid ng-valid-number ng-valid-maxlength ng-valid-minlength" id="" value="" ng-minlength="10" ng-maxlength="10">                                                                                                                
+                  </div>                                                                                                        
+                </div>                                         
+                <div class=" col-lg-12">                      
+                  <div class=" col-lg-2">                    <strong>Gender:</strong> 				                                                                                                                 
+                  </div>                                                                                                                
+                  <div class=" col-lg-4">                                                                                                                          
+                    <div>						    
+                      <div class="btn-group" style="margin-bottom: 10px;">						        
+                        <label class="btn btn-success" ng-model="userObj.gender" btn-radio="'Male'" uncheckable>Male
+                        </label>						        
+                        <label class="btn btn-success" ng-model="userObj.gender" btn-radio="'Female'" uncheckable>Female
+                        </label>						        
+                        <label class="btn btn-success" ng-model="userObj.gender" btn-radio="'Other'" uncheckable>Other
+                        </label>						    
+                      </div>						
+                    </div>                                                                                                                
+                  </div>                                                                                                        
+                </div>                    
+                <div class=" col-lg-12">                                                                                                                
+                  <div class=" col-lg-2">                    <strong>Birth Date</strong> 				                                                                                                                 
+                  </div>                                                                                                                
+                  <div class=" col-lg-8">                                                                                                                          
+                    <input ng-model="userObj.dob" type="text" name="dob" placeholder="MM/DD/YYYY" class="form-control" id="" value=""                         required >                                                                                                                
+                  </div>                                                                                                        
+                </div>                    
+                <div class=" col-lg-12">                                                                                                                
+                  <div class=" col-lg-2">                    <strong>Language Known</strong>                                                                                                                  
+                  </div>										                                                                                                                   
+                  <div class=" col-lg-6">                                                                                                                                                                                                                                                  
+                    <input ng-model="userObj.lang_known" type="" name="" placeholder="English, Hindi, Tamil" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                        
+                    <!-- 
+                                            <select ng-model="language.value" ng-options="v for v in language.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">English</option><option value="1">French</option><option value="2">Hindi</option><option value="3">Urdu</option><option value="4">Spanish</option></select><input ng-model="taxID" type="" name="" placeholder="Personal/Tax ID" class="form-control ng-pristine ng-valid" id="" value="">
+                                            -->                                                                                                                
+                  </div>                                                                                                        
+                </div>                    
+                <button type="button" class="btn btn-primary leftAlign " ng-click="saveProfile()">Save
+                </button>                    			 				 				 								 			 			                                                                                               
+              </div>                                                                                                      
+            </div>                                                                                          
+          </li>                                                                                                                                           
+        </ul>          
+        <hr>                                                                                      
+      </div>    	
+      <!-- End of personal Info Form -->    
+    </tab>    
+    <tab heading="Preferences">    	
+      <!--<div>
+          		<rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+          		<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+      		</div>
+      		-->		
+      <!-- Start of Preferences -->    	
+      <div>                                                               
+        <ul class="nav" id="profileTabFormContainer" "="">                                                   
+          <li id="section1" style="display: list-item;">            <br />                                                                                                                                                                                                                                                            
+            <div class="">                                                                                                                                                            
+              <div class="col-md-12">                                                             
+                <div class=" col-lg-12">                      
+                  <div class=" col-lg-2">                                           	<strong>Chat:</strong> 				                                                                                                                 
+                  </div>                                                                                                                
+                  <div class=" col-lg-6">                                                                                                                          
+                    <div>						    
+                      <div class="btn-group" style="margin-bottom: 10px;">						        
+                        <label class="btn btn-success" ng-model="userObj.chat" btn-radio="'0'" uncheckable>Reserved
+                        </label>						        
+                        <label class="btn btn-success" ng-model="userObj.chat" btn-radio="'1'" uncheckable>Moody
+                        </label>						        
+                        <label class="btn btn-success" ng-model="userObj.chat" btn-radio="'2'" uncheckable>Talkative
+                        </label>						    
+                      </div>						
+                    </div>                                                                                                                
+                  </div>                                                                                                                              
+                </div>                    
+                <div class=" col-lg-12">                      
+                  <div class=" col-lg-2">                                           	<strong>Music:</strong> 				                                                                                                                 
+                  </div>                                                                                                                
+                  <div class=" col-lg-6">                                                                                                                          
+                    <div>						    
+                      <div class="btn-group" style="margin-bottom: 10px;">						        
+                        <label class="btn btn-success" ng-model="userObj.music" btn-radio="'0'" uncheckable>No Music
+                        </label>						        
+                        <label class="btn btn-success" ng-model="userObj.music" btn-radio="'1'" uncheckable>Like Music
+                        </label>						        
+                        <label class="btn btn-success" ng-model="userObj.music" btn-radio="'2'" uncheckable>Love Music
+                        </label>						    
+                      </div>						
+                    </div>                                                                                                                
+                  </div>                                                                                                                              
+                </div>                    
+                <div class=" col-lg-12">                      
+                  <div class=" col-lg-2">                                           	<strong>Smoke:</strong> 				                                                                                                                 
+                  </div>                                                                                                                
+                  <div class=" col-lg-6">                                                                                                                          
+                    <div>						    
+                      <div class="btn-group" style="margin-bottom: 10px;">						        
+                        <label class="btn btn-success" ng-model="userObj.smoking" btn-radio="'0'" uncheckable>Not Allowd
+                        </label>						        
+                        <label class="btn btn-success" ng-model="userObj.smoking" btn-radio="'1'" uncheckable>Allowed
+                        </label>						    
+                      </div>						
+                    </div>                                                                                                                
+                  </div>                                                                                                                              
+                </div>                    
+                <div class=" col-lg-12">                      
+                  <div class=" col-lg-2">                                           	<strong>Food</strong> 				                                                                                                                 
+                  </div>                                                                                                                
+                  <div class=" col-lg-6">                                                                                                                          
+                    <div>						    
+                      <div class="btn-group" style="margin-bottom: 10px;">						        
+                        <label class="btn btn-success" ng-model="userObj.food" btn-radio="'0'" uncheckable>No Food in car
+                        </label>						        
+                        <label class="btn btn-success" ng-model="userObj.food" btn-radio="'1'" uncheckable>No littering
+                        </label>						    
+                      </div>						
+                    </div>                                                                                                                
+                  </div>                                                                                                                              
+                </div>                    
+                <div class=" col-lg-12">                      
+                  <div class=" col-lg-2">                                           	<strong>Pet</strong> 				                                                                                                                 
+                  </div>                                                                                                                
+                  <div class=" col-lg-6">                                                                                                                          
+                    <div>						    
+                      <div class="btn-group" style="margin-bottom: 10px;">						        
+                        <label class="btn btn-success" ng-model="userObj.pet" btn-radio="'0'" uncheckable>Not Allowed
+                        </label>						        
+                        <label class="btn btn-success" ng-model="userObj.pet" btn-radio="'1'" uncheckable>Not Allowed
+                        </label>						    
+                      </div>						
+                    </div>                                                                                                                
+                  </div>                                                                                                                              
+                </div>                    
+                <button type="button" class="btn btn-primary leftAlign " ng-click="saveProfile()">Save
+                </button>                    			 				 				 								 			 			                                                                                               
+              </div>                                                                                                      
+            </div>                                                                                          
+          </li>                                                                                                                                           
+        </ul>          
+        <hr>                                                                                      
+      </div>    	
+      <!-- End of personal Info Form -->		
+      <!-- End of preferences -->    
+    </tab>    
+    <tab heading="Add Car">              
+      <ul class="nav" id="profileTabFormContainer" "="">                                                   
+        <li id="section1" style="display: list-item;">            <br />                                                                                                                                                                                                                                                            
+          <div class="">                                                                                                                                                            
+            <div class="col-md-12">				 				 				                                                                                                         
+              <div class=" col-lg-12">                                                                                                                
+                <div class=" col-lg-2">						<strong>Car Model:</strong>
+                </div>										                                                                                                                   
+                <!--<div class=" col-lg-2">                                                                                                
+                                        <select ng-model="initial.value" ng-options="v for v in initial.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">Mr.</option><option value="1">Mrs.</option><option value="2">Doc.</option><option value="3">Eng.</option></select>                                                                                                                   
+                                      </div>-->                                                                                                                   
+                <div class=" col-lg-4">                                                                                                                          
+                  <input ng-model="userObj.cars.1.name" type="" name="" placeholder="eg: Swift Desire" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
+                </div>                                                                                                                  			                                                                                                         
+              </div>
+              <div class=" col-lg-12">                                                                                                                
+                <div class=" col-lg-2">						<strong>Registration No:</strong>
+                </div>										                                                                                                                                                                                                                                     
+                <div class=" col-lg-4">                                                                                                                          
+                  <input ng-model="car.plate_no" type="" name="" placeholder="eg: DL 07 XL XXXX" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
+                </div>				                                                                                                         
+              </div>                                         
+              <div class=" col-lg-12">                      
+                <div class=" col-lg-2">                    <strong>AC:</strong> 				                                                                                                                 
+                </div>                                                                                                                
+                <div class=" col-lg-4">                                                                                                                          
+                  <div>						    
+                    <div class="btn-group" style="margin-bottom: 10px;">						        
+                      <label class="btn btn-success" ng-model="car.ac" btn-radio="'0'" uncheckable>Yes
+                      </label>
+                      <label class="btn btn-success" ng-model="car.ac" btn-radio="1" uncheckable>No
+                      </label>						        						        
+                      <label class="btn btn-success" ng-model="car.ac" btn-radio="'2'" uncheckable>Unknown
+                      </label>						    
+                    </div>						
+                  </div>                                                                                                                
+                </div>                                                                                                        
+              </div>
+              <div class=" col-lg-12">                      
+                <div class=" col-lg-2">                    <strong>Sterio System:</strong> 				                                                                                                                 
+                </div>                                                                                                                
+                <div class=" col-lg-4">                                                                                                                          
+                  <div>						    
+                    <div class="btn-group" style="margin-bottom: 10px;">						        
+                      <label class="btn btn-success" ng-model="car.sterio" btn-radio="'0'" uncheckable>Yes
+                      </label>
+                      <label class="btn btn-success" ng-model="car.sterio" btn-radio="1" uncheckable>No
+                      </label>						        						        
+                      <label class="btn btn-success" ng-model="car.sterio" btn-radio="'2'" uncheckable>Unknown
+                      </label>						    
+                    </div>						
+                  </div>                                                                                                                
+                </div>                                                                                                        
+              </div>
+              <div class=" col-lg-12">                      
+                <div class=" col-lg-2">                    <strong>Leather Seats</strong> 				                                                                                                                 
+                </div>                                                                                                                
+                <div class=" col-lg-4">                                                                                                                          
+                  <div>						    
+                    <div class="btn-group" style="margin-bottom: 10px;">						        
+                      <label class="btn btn-success" ng-model="car.leather_seat" btn-radio="'0'" uncheckable>Yes
+                      </label>
+                      <label class="btn btn-success" ng-model="car.leather_seat" btn-radio="1" uncheckable>No
+                      </label>						        						        
+                      <label class="btn btn-success" ng-model="car.leather_seat" btn-radio="'2'" uncheckable>Unknown
+                      </label>						    
+                    </div>						
+                  </div>                                                                                                                
+                </div>                                                                                                        
+              </div>                                        
+              <div class=" col-lg-12">                                                                                                                
+                <div class=" col-lg-2">                    <strong>Extra Info</strong>                                                                                                                  
+                </div>										                                                                                                                   
+                <div class=" col-lg-6">                                                                                                                                                                                                                                                  
+                  <input ng-model="car.extra_info" type="" name="" placeholder="Extra info can be provided here." class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                        
+                  <!-- 
+                                          <select ng-model="language.value" ng-options="v for v in language.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">English</option><option value="1">French</option><option value="2">Hindi</option><option value="3">Urdu</option><option value="4">Spanish</option></select><input ng-model="taxID" type="" name="" placeholder="Personal/Tax ID" class="form-control ng-pristine ng-valid" id="" value="">
+                                          -->                                                                                                                
+                </div>                                                                                                        
+              </div>                    
+              <button type="button" class="btn btn-primary leftAlign " ng-click="saveProfile()">Save
+              </button>                    			 				 				 								 			 			                                                                                               
+            </div>                                                                                                      
+          </div>                                                                                          
+        </li>                                                                                                                                           
+      </ul>    	
+      <hr />    
+    </tab>    
     <!-- <tab select="alertMe()">
-      <tab-heading>
-        <i class="glyphicon glyphicon-bell"></i> Alert!
-      </tab-heading>
-      I've got an HTML heading, and a select callback. Pretty cool!
-    </tab>
-     -->
-</tabset>
+          <tab-heading>
+            <i class="glyphicon glyphicon-bell"></i> Alert!
+          </tab-heading>
+          I've got an HTML heading, and a select callback. Pretty cool!
+        </tab>
+         -->
+  </tabset>
 </form>
