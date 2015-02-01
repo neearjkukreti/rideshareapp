@@ -1,5 +1,5 @@
 app.service("user",function user(Facebook, $http,$rootScope){
-	this.isConnectedtoFb = false;
+  this.isConnectedtoFb = false;
   this.islogin = false;
   this.firstTime = false;
   

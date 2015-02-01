@@ -1,6 +1,6 @@
-app.controller('profile', function($scope,user, $http) {
+app.controller('profile', function($scope,user,car, $http) {
 	
-	$scope.userObj = user.currentUser;//fbObject;	
+	$scope.userObj = user.currentUser;//fbObject;
 	
 	//$scope.gender = 'Other';
 	$scope.rate = 0;
@@ -14,6 +14,23 @@ app.controller('profile', function($scope,user, $http) {
 
 	$scope.saveProfile = function(value) {
       console.log($scope.userObject);
+	    var responsePromise = $http.post("../services/index.php/user",$scope.userObject);
+      responsePromise.success(function(data, status, headers, config) {
+        
+        /*Store data to  service*/
+        //user.currentUser = data.userObject;
+        //localStorage.currentUser = JSON.stringify(user.currentUser);
+          
+        //alert(data.status);
+        console.log(data);
+        //new user
+        //window.location = '#/userDashboard';
+      });
+	};
+	
+	$scope.saveCar = function(value) {
+      console.log($scope);
+      return;
 	    var responsePromise = $http.post("../services/index.php/user",$scope.userObject);
       responsePromise.success(function(data, status, headers, config) {
         
