@@ -27,17 +27,24 @@ app.service("user",function user(Facebook, $http,$rootScope){
   this.getCurrentUser = function () {
     return this.currentUser;
   };
-
+  this.offlinelogin = function(){
+	  this.currentUser = JSON.parse('{"id":"18","firstname":"Neeraj","lastname":"Kukreti","gender":"Female","fb_id":"10203200159989914","email_id":"neeraj.kr.kukreti@gmail.com","mobile":"9717244211","dob":"2014-12-12","privacy":"1","lang_known":"Hindi, English, Math","chat":"2","music":"2","smoking":"0","food":"1","pet":"1"}');
+      this.isConnected = true;
+      this.islogin = true;
+      this.firstTime = true;
+  };
+  
   this.initUserFromSession = function(){   
   	try{
       if(localStorage.currentUser){
-  			this.currentUser = JSON.parse(localStorage.currentUser);
+  		this.currentUser = JSON.parse(localStorage.currentUser);
         this.isConnected = true;
         this.islogin = true;
         this.firstTime = localStorage.firstTime == 'true'?true:false;
   	  }	
   	}
     catch(e){}
+    //this.offlinelogin();
   };
   
   this.logout = function(){
