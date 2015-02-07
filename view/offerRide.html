@@ -1,1 +1,75 @@
-Test Offer Ride
+<div ng-hide="{{firstTimeUser}}">
+    Test Offer Ride
+</div>
+<form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" role="form" name="form">
+    <div>                                                               
+        <ul class="nav" id="profileTabFormContainer">                                                   
+            <li id="section1" style="display: list-item;">
+                <br />                                                                                                                                                                                                                                                            
+                <div class="">                                                                                                                                                            
+                    <div class="col-md-12">				 				 				                                                                                                         
+                        <div class=" col-lg-12">                                                                                                                
+                            <div class=" col-lg-2">
+                                <strong>From:</strong>                                                                                                                  
+                            </div>										                                                                                                                   
+                            <div class=" col-lg-3">                                                                                                                          
+                                <input ng-model="rideObj.rfrom" type="" name="" placeholder="e.g. Delhi" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
+                            </div>
+                            <div class=" col-lg-2">
+                                <strong>To:</strong>                                                                                                                  
+                            </div>
+                            <div class=" col-lg-3">                                                                                                                          
+                                <input ng-model="rideObj.rto" type="" name="" placeholder="e.g. Dehradun" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
+                            </div>				                                                                                                         
+                        </div>                                                                                                                               
+
+                        <div class=" col-lg-12">                                                                                                                
+                            <div class=" col-lg-2">
+                                <strong>Date:</strong>                                                                                                                  
+                            </div>										                                                                                                                   
+                            <div class=" col-lg-3">                                                                                                                          
+                                <input ng-model="rideObj.rdate" type="" name="" placeholder="YYYY-MM-DD" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
+                            </div>
+                            <div class=" col-lg-2">
+                                <strong>Time:</strong>                                                                                                                  
+                            </div>
+                            <div class=" col-lg-3">                                                                                                                          
+                                <input ng-model="rideObj.rtime" type="" name="" placeholder="00:00:00" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
+                            </div>				                                                                                                         
+                        </div>
+
+                        <div class=" col-lg-12">                                                                                                                
+                            <div class=" col-lg-2">                    
+                                <strong>Seats:</strong> 				                                                                                                                 
+                            </div>                                                                                                                
+                            <div class=" col-lg-4">                                                                                                                          
+                                <input ng-model="rideObj.seats" type="text" name="" placeholder="e.g. 3" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-email" id="" value="" required="">                                                                                                                
+                            </div>                                                                                                        
+                        </div> 
+                        <div class=" col-lg-12">                                                                                                                
+                            <div class=" col-lg-2">                    
+                                <strong>Car:</strong> 				                                                                                                                 
+                            </div>                                                                                                                
+                            <div class=" col-lg-4">                                                                                                                          
+                                <select ng-model="rideObj.car_id" ng-options="v for v in rideObj.cars" type="text" name="" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-email" id="" value="" required="">
+
+                                </select>
+                            </div>                                                                                                        
+                        </div>
+
+
+                        <input ng-model="rideObj.host" type="hidden" value="" required="">
+                        <input ng-model="rideObj.status" type="hidden" value="" required="">
+                        <input ng-model="rideObj.rlat" type="hidden" value="" required="">
+                        <input ng-model="rideObj.rlang" type="hidden" value="" required="">
+
+                        <button type="button" class="btn btn-primary leftAlign " ng-click="offerRide()">
+                            Save
+                        </button>                    			 				 				 								 			 			                                                                                               
+                    </div>                                                                                                      
+                </div>                                                                                          
+            </li>                                                                                                                                           
+        </ul>          
+        <hr>                                                                                      
+    </div>
+</form>
