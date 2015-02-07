@@ -49,6 +49,7 @@ app.controller('search', function($scope, $http) {
     $scope.totalResult = data.totalAvailabilty;
     $scope.avialableResult = data.showResults;    
     $scope.avialableRideList = data.availability;
+    alert("hi");
     console.log(data);
     
   });
