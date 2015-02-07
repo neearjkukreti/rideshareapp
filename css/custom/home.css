@@ -89,3 +89,6 @@ opacity: .2;
     float: none;
     margin: 0 auto;
 }
+.cursorHand{
+	cursor: pointer;
+}

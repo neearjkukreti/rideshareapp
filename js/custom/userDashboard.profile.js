@@ -43,6 +43,19 @@ app.controller('profile', function($scope,user,car, $http) {
 	    });
 	};
 	
+	$scope.deleteCar = function(car, $event) {
+		$event.stopPropagation();
+		var delCar = {};
+		delCar.id = car.id;
+		delCar.user_id = $scope.userObj.id;
+	    var responsePromise = $http.post("../services/index.php/car/delete",delCar);
+	    	responsePromise.success(function(data, status, headers, config) {
+	    	console.log(data);
+        	$scope.mycars = data.cars; // update view
+        	user.saveUserCar(data.cars);
+	    });
+	};
+	
 	$scope.updateCar = function(value) {
 		console.log(value);
 	    var responsePromise = $http.post("../services/index.php/car/update",value);

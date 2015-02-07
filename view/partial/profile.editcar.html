@@ -2,7 +2,11 @@
 <div ng-repeat="currentCar in mycars">
       <accordion-group is-open="isOpen">
         <accordion-heading>
-          {{currentCar.name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}"></i>
+        <div class='cursorHand'>
+          {{currentCar.name}} 
+          <!-- <i class="pull-right glyphicon " ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}"></i> -->
+          <i class="pull-right glyphicon glyphicon-trash" ng-click='deleteCar(currentCar, $event)'></i>
+        </div>
         </accordion-heading>
         <div class="">                                                                                                                                                            
             <div class="col-md-12">				 				 				                                                                                                         
