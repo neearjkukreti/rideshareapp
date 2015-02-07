@@ -7,7 +7,8 @@ app.controller('profile', function($scope,user,car, $http) {
 	$scope.max = 10;
 	$scope.isReadonly = false;	  
 	$scope.car = {}; //new car
-	$scope.mycars = $scope.userObj.cars; 
+	$scope.mycars = $scope.userObj.cars;
+	$scope.isCarCollapsed = true;
 		
 	$scope.hoveringOver = function(value) {
 	    $scope.overStar = value;
@@ -36,7 +37,9 @@ app.controller('profile', function($scope,user,car, $http) {
 	    	responsePromise.success(function(data, status, headers, config) {
 	    	console.log(data);
         	$scope.mycars = data.cars; // update view
-        	user.currentUser.cars = data.cars; // update user object
+        	user.saveUserCar(data.cars);
+        	$scope.car = {};
+        	$scope.isCarCollapsed = true;
 	    });
 	};
 	
@@ -46,7 +49,7 @@ app.controller('profile', function($scope,user,car, $http) {
 	    	responsePromise.success(function(data, status, headers, config) {
 	    	console.log(data);
         	$scope.mycars = data.cars; // update view
-        	user.currentUser.cars = data.cars; // update user object
+        	user.saveUserCar(data.cars);
 	    });
 	};
   	

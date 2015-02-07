@@ -1,8 +1,8 @@
+<accordion close-others="true">
 <div ng-repeat="currentCar in mycars">
-    <accordion close-others="oneAtATime">
       <accordion-group is-open="isOpen">
         <accordion-heading>
-          Rides Posted <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}"></i>
+          {{currentCar.name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}"></i>
         </accordion-heading>
         <div class="">                                                                                                                                                            
             <div class="col-md-12">				 				 				                                                                                                         
@@ -86,5 +86,5 @@
             </div>                                                                                                      
           </div>
       </accordion-group>
-    </accordion>
 </div>
+</accordion>

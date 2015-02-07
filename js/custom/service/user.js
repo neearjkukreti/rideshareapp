@@ -54,6 +54,11 @@ app.service("user",function user(Facebook, $http,$rootScope){
     this.islogin = false;
   };
   
+  this.saveUserCar = function(cars){
+	  this.currentUser.cars = cars;
+	  localStorage.firstTime = JSON.stringify(this.currentUser);
+  };
+  
   this.login = function($scope) {
       _self = this;
       

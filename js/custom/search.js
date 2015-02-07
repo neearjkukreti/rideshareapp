@@ -39,7 +39,7 @@ app.controller('search', function($scope, $http) {
   console.log(rideSearchInput);
   
   
-  var responsePromise = $http.post("../services/index.php/search",response);
+  var responsePromise = $http.get("../services/index.php/search",rideSearchInput);
   responsePromise.success(function(data, status, headers, config) {
     $scope.sourceCity = data.basic.SourceCity;
     $scope.destinationCity = data.basic.DestinationCity;
@@ -49,7 +49,6 @@ app.controller('search', function($scope, $http) {
     $scope.totalResult = data.totalAvailabilty;
     $scope.avialableResult = data.showResults;    
     $scope.avialableRideList = data.availability;
-    alert("hi");
     console.log(data);
     
   });

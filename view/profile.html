@@ -177,93 +177,22 @@
       <!-- End of preferences -->    
     </tab>    
     <tab heading="Add Car">
-      <a ng-model="addCarCollapsed" ng-click="addCarCollapsed=!addCarCollapsed">Add Car</a>              
-      <ul class="nav" id="profileTabFormContainer">                                                   
-        <li id="section1" style="display: list-item;" ng-show="addCarCollapsed">            <br />                                                                                                                                                                                                                                                            
-          <div class="">                                                                                                                                                            
-            <div class="col-md-12">				 				 				                                                                                                         
-              <div class=" col-lg-12">                                                                                                                
-                <div class=" col-lg-2">						<strong>Car Model:</strong>
-                </div>										                                                                                                                   
-                <!--<div class=" col-lg-2">                                                                                                
-                                        <select ng-model="initial.value" ng-options="v for v in initial.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">Mr.</option><option value="1">Mrs.</option><option value="2">Doc.</option><option value="3">Eng.</option></select>                                                                                                                   
-                                      </div>-->                                                                                                                   
-                <div class=" col-lg-4">                                                                                                                          
-                  <input ng-model="car.name" type="" name="" placeholder="eg: Swift Desire" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
-                </div>                                                                                                                  			                                                                                                         
-              </div>
-              <div class=" col-lg-12">                                                                                                                
-                <div class=" col-lg-2">						<strong>Registration No:</strong>
-                </div>										                                                                                                                                                                                                                                     
-                <div class=" col-lg-4">                                                                                                                          
-                  <input ng-model="car.plate_no" type="" name="" placeholder="eg: DL 07 XL XXXX" class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                                                                                                                  
-                </div>				                                                                                                         
-              </div>                                         
-              <div class=" col-lg-12">                      
-                <div class=" col-lg-2">                    <strong>AC:</strong> 				                                                                                                                 
-                </div>                                                                                                                
-                <div class=" col-lg-4">                                                                                                                          
-                  <div>						    
-                    <div class="btn-group" style="margin-bottom: 10px;">						        
-                      <label class="btn btn-success" ng-model="car.ac" btn-radio="'0'" uncheckable>Yes
-                      </label>
-                      <label class="btn btn-success" ng-model="car.ac" btn-radio="1" uncheckable>No
-                      </label>						        						        
-                      <label class="btn btn-success" ng-model="car.ac" btn-radio="'2'" uncheckable>Unknown
-                      </label>						    
-                    </div>						
-                  </div>                                                                                                                
-                </div>                                                                                                        
-              </div>
-              <div class=" col-lg-12">                      
-                <div class=" col-lg-2">                    <strong>Sterio System:</strong> 				                                                                                                                 
-                </div>                                                                                                                
-                <div class=" col-lg-4">                                                                                                                          
-                  <div>						    
-                    <div class="btn-group" style="margin-bottom: 10px;">						        
-                      <label class="btn btn-success" ng-model="car.sterio" btn-radio="'0'" uncheckable>Yes
-                      </label>
-                      <label class="btn btn-success" ng-model="car.sterio" btn-radio="1" uncheckable>No
-                      </label>						        						        
-                      <label class="btn btn-success" ng-model="car.sterio" btn-radio="'2'" uncheckable>Unknown
-                      </label>						    
-                    </div>						
-                  </div>                                                                                                                
-                </div>                                                                                                        
-              </div>
-              <div class=" col-lg-12">                      
-                <div class=" col-lg-2">                    <strong>Leather Seats</strong> 				                                                                                                                 
-                </div>                                                                                                                
-                <div class=" col-lg-4">                                                                                                                          
-                  <div>						    
-                    <div class="btn-group" style="margin-bottom: 10px;">						        
-                      <label class="btn btn-success" ng-model="car.leather_seat" btn-radio="'0'" uncheckable>Yes
-                      </label>
-                      <label class="btn btn-success" ng-model="car.leather_seat" btn-radio="1" uncheckable>No
-                      </label>						        						        
-                      <label class="btn btn-success" ng-model="car.leather_seat" btn-radio="'2'" uncheckable>Unknown
-                      </label>						    
-                    </div>						
-                  </div>                                                                                                                
-                </div>                                                                                                        
-              </div>                                        
-              <div class=" col-lg-12">                                                                                                                
-                <div class=" col-lg-2">                    <strong>Extra Info</strong>                                                                                                                  
-                </div>										                                                                                                                   
-                <div class=" col-lg-6">                                                                                                                                                                                                                                                  
-                  <input ng-model="car.extra_info" type="" name="" placeholder="Extra info can be provided here." class="form-control ng-pristine ng-invalid ng-invalid-required" id="" value="" required="">                        
-                  <!-- 
-                                          <select ng-model="language.value" ng-options="v for v in language.values" class="form-control ng-pristine ng-valid"><option value="0" selected="selected">English</option><option value="1">French</option><option value="2">Hindi</option><option value="3">Urdu</option><option value="4">Spanish</option></select><input ng-model="taxID" type="" name="" placeholder="Personal/Tax ID" class="form-control ng-pristine ng-valid" id="" value="">
-                                          -->                                                                                                                
-                </div>                                                                                                        
-              </div>                    
-              <button type="button" class="btn btn-primary leftAlign " ng-click="saveCar()">Save
-              </button>                    			 				 				 								 			 			                                                                                               
-            </div>                                                                                                      
-          </div>                                                                                          
-        </li>                                                                                                                                           
-      </ul>    	
-      <hr />
+      <div>
+      	
+      	<div class="row">
+    		<div class="col-lg-2 col-centered">
+    		<div>Add Car<br />
+		<button type="button" ng-model='isCarCollapsed' ng-click="isCarCollapsed = !isCarCollapsed" class="btn btn-info btn-circle">
+			<i class="glyphicon {{isCarCollapsed?'glyphicon-plus':'glyphicon-minus'}}"></i>
+		</button>
+		</div>
+    		</div>
+		</div>
+			<div collapse="isCarCollapsed">
+				<ng-include src="'view/partial/profile.addcar.html'"></ng-include> 
+			</div>
+	  </div>              
+
       Existing Cars
       <ng-include src="'view/partial/profile.editcar.html'"></ng-include>    
     </tab>    
