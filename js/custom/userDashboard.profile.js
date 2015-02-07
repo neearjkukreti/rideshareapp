@@ -6,7 +6,9 @@ app.controller('profile', function($scope,user,car, $http) {
 	$scope.rate = 0;
 	$scope.max = 10;
 	$scope.isReadonly = false;	  
-	$scope.car = {};
+	$scope.car = {}; //new car
+	$scope.mycars = $scope.userObj.cars; 
+		
 	$scope.hoveringOver = function(value) {
 	    $scope.overStar = value;
 	    $scope.percent = 100 * (value / $scope.max);
@@ -31,8 +33,20 @@ app.controller('profile', function($scope,user,car, $http) {
 	$scope.saveCar = function(value) {
 		$scope.car.user_id = $scope.userObj.id;
 	    var responsePromise = $http.post("../services/index.php/car/create",$scope.car);
-	    responsePromise.success(function(data, status, headers, config) {
-        console.log(data);
+	    	responsePromise.success(function(data, status, headers, config) {
+	    	console.log(data);
+        	$scope.mycars = data.cars; // update view
+        	user.currentUser.cars = data.cars; // update user object
+	    });
+	};
+	
+	$scope.updateCar = function(value) {
+		console.log(value);
+	    var responsePromise = $http.post("../services/index.php/car/update",value);
+	    	responsePromise.success(function(data, status, headers, config) {
+	    	console.log(data);
+        	$scope.mycars = data.cars; // update view
+        	user.currentUser.cars = data.cars; // update user object
 	    });
 	};
   	

@@ -176,9 +176,10 @@
       <!-- End of personal Info Form -->		
       <!-- End of preferences -->    
     </tab>    
-    <tab heading="Add Car">              
-      <ul class="nav" id="profileTabFormContainer" "="">                                                   
-        <li id="section1" style="display: list-item;">            <br />                                                                                                                                                                                                                                                            
+    <tab heading="Add Car">
+      <a ng-model="addCarCollapsed" ng-click="addCarCollapsed=!addCarCollapsed">Add Car</a>              
+      <ul class="nav" id="profileTabFormContainer">                                                   
+        <li id="section1" style="display: list-item;" ng-show="addCarCollapsed">            <br />                                                                                                                                                                                                                                                            
           <div class="">                                                                                                                                                            
             <div class="col-md-12">				 				 				                                                                                                         
               <div class=" col-lg-12">                                                                                                                
@@ -262,7 +263,9 @@
           </div>                                                                                          
         </li>                                                                                                                                           
       </ul>    	
-      <hr />    
+      <hr />
+      Existing Cars
+      <ng-include src="'view/partial/profile.editcar.html'"></ng-include>    
     </tab>    
     <!-- <tab select="alertMe()">
           <tab-heading>
