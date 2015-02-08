@@ -47,10 +47,7 @@ app.controller('mainCtrl', function ($scope, $timeout, $location, $http, Faceboo
     $scope.postRide = function () {
         $scope.loadUserDashboard();
     };
-    $scope.offerRide = function () {
-        ride.postRide();
-    };
-
+    
     $scope.logout = function () {
         user.logout();
         window.location.reload();
