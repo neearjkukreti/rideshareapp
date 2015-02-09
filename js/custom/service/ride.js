@@ -1,28 +1,32 @@
 app.service("ride", function user($http) {
-    this.ride = {};
-    this.ride.id;
-    this.ride.rdate = '2015-02-07';
-    this.ride.rtime = '20:45:50';
-    this.ride.host = '8';
-    this.ride.car_id = '2';
-    this.ride.rfrom = 'Delhi';
-    this.ride.rto = 'Dehradun';
-    this.ride.status = '1';
-    this.ride.seats = '3';
-    this.ride.rlat = '0.00';
-    this.ride.rlong = '0.00';
+    this.currentRide = {};
+    this.currentRide.id;
+    this.currentRide.rdate;
+    this.currentRide.rtime;
+    this.currentRide.host;
+    this.currentRide.car_id;
+    this.currentRide.rfrom;
+    this.currentRide.rto;
+    this.currentRide.status = 1;
+    this.currentRide.seats = 3;
+    this.currentRide.available_seats = 3;
+    this.currentRide.rlat = '0.00';
+    this.currentRide.rlong = '0.00';
+    this.currentRide.cars;
 
     this.getRide = function () {
-        return this.ride;
+        return this.currentRide;
     };
 
     this.postRide = function () {
-        alert('hi');
-        var serviceUrl = '../service/index.php/ride/create';
+        console.log(this.currentRide);
+	this.currentRide.car_id = this.currentRide.id;
+        //var serviceUrl = '../rideshareappservice/index.php/ride/create';
+        var serviceUrl = '../services/index.php/ride/create';
         var responsePromise = $http.post(serviceUrl, this.getRide());
 
         responsePromise.success(function (data, status, headers, config) {
-            //check response from service and update View
+            console.log(data);//check response from service and update View
         });
         responsePromise.error(function (data, status, headers, config) {
             alert("AJAX failed!");
