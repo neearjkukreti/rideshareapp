@@ -20,8 +20,8 @@ app.service("ride", function user($http) {
 
     this.postRide = function () {
         console.log(this.currentRide);
-	this.currentRide.car_id = this.currentRide.id;
-        //var serviceUrl = '../rideshareappservice/index.php/ride/create';
+        this.currentRide.car_id = this.currentRide.car_id.id
+
         var serviceUrl = '../services/index.php/ride/create';
         var responsePromise = $http.post(serviceUrl, this.getRide());
 
