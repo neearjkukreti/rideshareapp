@@ -41,14 +41,8 @@ app.controller('search', function($scope, $http) {
   
   var responsePromise = $http.get("../services/index.php/search",rideSearchInput);
   responsePromise.success(function(data, status, headers, config) {
-    $scope.sourceCity = data.basic.SourceCity;
-    $scope.destinationCity = data.basic.DestinationCity;
-    $scope.distance = data.basic.Distance;
-    $scope.timeinMinutes = data.basic.TimeinMinutes;
-    $scope.unit = data.basic.Unit;
-    $scope.totalResult = data.totalAvailabilty;
-    $scope.avialableResult = data.showResults;    
-    $scope.avialableRideList = data.availability;
+ $scope.avialableRideList = data.searchdata;
+ 
     console.log(data);
     
   });
