@@ -2,17 +2,45 @@
     <accordion close-others="oneAtATime">
       <accordion-group is-open="isOpen">
         <accordion-heading>
-          Rides Posted <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}"></i>
+          Rides Posted <i class="pull-right glyphicon" ng-click='getAppliedRides(userid)' ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}"></i>
         </accordion-heading>
-        body1
+          <div class="row">
+              <div class="col-md-2">Source</div>
+              <div class="col-md-2">Destination</div>
+              <div class="col-md-3">Date/Time</div>
+              <div class="col-md-2">Price</div>
+              <div class="col-md-1">Availability</div>
+          </div>  
+          <div ng-repeat="ride in myAppliedRides" class="row">                
+              <div class="col-md-2">{{ride.rfrom}}</div>
+              <div class="col-md-2">{{ride.rto}}</div>
+              <div class="col-md-3">{{ride.rdate}} {{ride.rtime}}</div>
+              <div class="col-md-2">{{ride.price}}</div>
+              <div class="col-md-1">{{ride.available_seats}}</div>              
+          </div>
       </accordion-group>
     </accordion>
     <accordion close-others="oneAtATime">
       <accordion-group is-open="isOpen">
         <accordion-heading>
-          Rides Hosted<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}"></i>
+          Rides Hosted<i class="pull-right glyphicon" ng-click='getHostedRides(userid)' ng-class="{'glyphicon-chevron-down': isOpen, 'glyphicon-chevron-right': !isOpen}"></i>
         </accordion-heading>
-        body2
+          <div class="row">
+              <div class="col-md-2">Source</div>
+              <div class="col-md-2">Destination</div>
+              <div class="col-md-3">Date/Time</div>
+              <div class="col-md-1">Price</div>
+              <div class="col-md-1">Available</div>
+              <div class="col-md-2">&nbsp;</div>
+          </div>  
+          <div ng-repeat="ride in myOfferedRides" class="row">                
+              <div class="col-md-2">{{ride.rfrom}}</div>
+              <div class="col-md-2">{{ride.rto}}</div>
+              <div class="col-md-3">{{ride.rdate}} {{ride.rtime}}</div>
+              <div class="col-md-1">{{ride.price}}</div>
+              <div class="col-md-1">{{ride.available_seats}}</div>              
+              <div class="col-md-2"><button>Details</button></div>
+          </div>
       </accordion-group>
     </accordion>
   </div>
