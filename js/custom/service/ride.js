@@ -36,6 +36,6 @@ app.service("ride", function user($http) {
     this.validateRide = function () {
         //validateion code
         return true;
-    }
-
+    }   
+    
 });
