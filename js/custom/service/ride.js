@@ -1,4 +1,4 @@
-app.service("ride", function user($http) {
+app.service("ride", function ride($http) {
     this.currentRide = {};
     this.currentRide.id;
     this.currentRide.rdate;
