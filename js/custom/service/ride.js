@@ -1,4 +1,4 @@
-app.service("ride", function user($http) {
+app.service("ride", function ride($http) {
     this.currentRide = {};
     this.currentRide.id;
     this.currentRide.rdate;
@@ -17,6 +17,13 @@ app.service("ride", function user($http) {
     this.getRide = function () {
         return this.currentRide;
     };
+    
+    this.fetchRecentRides = function ($scope) {
+    	var responsePromise = $http.get("../services/index.php/search");
+    	responsePromise.success(function (data, status, headers, config) {
+    		$scope.recentRides = data.searchdata;
+        });
+    }
 
     this.postRide = function () {
         console.log(this.currentRide);

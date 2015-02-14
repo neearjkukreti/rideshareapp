@@ -28,7 +28,7 @@
             </div>
         </div>
         
-    </header>
+    </header>Recent Rides >> {{recentRides.length}}
     <div class="container-fluid"  id='searchBoxContainer'>
     <div class="container" id='searchBox'>
     <div class="panel panel-success">
@@ -70,17 +70,21 @@
                     Recently Posted Rides
                 </h1>
             </div>
-            <div class="col-md-4">
+            
+            <div class="col-md-4" ng-repeat='ride in recentRides'>
+                <a href='#/showRide/{{ride.id}}'>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.2.0</h4>
+                        <h4><i class="fa fa-fw fa-check"></i> {{ride.rfrom}} to {{ride.rto}}</h4>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
                         <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
+                </a>
             </div>
+            
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
