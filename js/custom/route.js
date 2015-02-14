@@ -50,6 +50,11 @@ app.config(function($stateProvider, $urlRouterProvider,FacebookProvider) {
         			url:'/messages',
         			templateUrl:'view/messages.html',
         			controller: 'messages'
+        })
+        .state('showRide',{
+        			url:'/showRide/:id',
+        			templateUrl:'view/showRide.html',
+        			controller: 'showRide'
         });
         
         $urlRouterProvider.otherwise('/');       
