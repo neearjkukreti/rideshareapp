@@ -41,17 +41,16 @@
                 <a href='#/rideDetail?id={{ride.id}}'><div class="thumbnail">
                     <img class="img-responsive" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p160x160/10891851_10203311183765439_6962803107728809123_n.jpg?oh=ffafeee7c1291c6ed228b8d4a9ec1e59&oe=555DD419&__gda__=1433340040_4a1a3ea03661c4097b968e5eec7f41e2" alt="">
                     <div class="caption">
-                        <h3>{{ride.firstname}}<br>
-                            <small>{{rideavailable_seats}} Test</small>
+                        <h3>{{ride.firstname}} <br>
+                            <small>{{ride.available_seats}} </small>
                         </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
+                        <p>{{ride.price}}</p>
                         <ul class="list-inline">
                             <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
                             </li>
                             <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
+                            <li><button ng-click='applyride(ride.id)' >Apply </button></li>
                         </ul>
                     </div>
                 </div>

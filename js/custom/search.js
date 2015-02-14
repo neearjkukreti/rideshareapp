@@ -1,4 +1,4 @@
-app.controller('search', function($scope, $http) {
+app.controller('search', function($scope, $http,user) {
   /*$scope.sample = function() {
     alert('sample method called');
     console.log('sample method called');
@@ -49,6 +49,27 @@ app.controller('search', function($scope, $http) {
   responsePromise.error(function(data, status, headers, config) {
     alert("AJAX failed!");
   });
-  console.log()
+  
+
+$scope.applyride=function(ride_id)
+
+	{
+	$scope.applydata.rideid=ride_id;
+	$scope.applydata.userid=user.id;
+	console.log($scope.applydata);
+
+	 var responsePromise = $http.get("../services/index.php/ride/apply", $scope.applydata);
+  	responsePromise.success(function(data, status, headers, config) {
+ 	$scope.avialableRideList = data.searchdata;
+ 
+    	console.log(data);
+    
+  });
+  responsePromise.error(function(data, status, headers, config) {
+    alert("AJAX failed!");
+  });
+
+}
+
   
 });
