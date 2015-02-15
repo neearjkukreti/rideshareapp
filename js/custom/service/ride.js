@@ -43,6 +43,6 @@ app.service("ride", function ride($http) {
     this.validateRide = function () {
         //validateion code
         return true;
-    }
-
+    }   
+    
 });

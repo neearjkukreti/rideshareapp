@@ -1,4 +1,4 @@
-app.controller('search', function($scope, $http) {
+app.controller('search', function($scope, $stateParams, $http, user) {
   /*$scope.sample = function() {
     alert('sample method called');
     console.log('sample method called');
@@ -27,6 +27,7 @@ app.controller('search', function($scope, $http) {
     $('.row-offcanvas').toggleClass('active');
   });*/
 
+  console.log($stateParams.source + $stateParams.destination);
   
   $scope.sourceLat = rideSearchInput.to[1].geometry.location.k;
   $scope.sourceLog = rideSearchInput.to[1].geometry.location.D;
@@ -41,20 +42,23 @@ app.controller('search', function($scope, $http) {
   
   var responsePromise = $http.get("../services/index.php/search",rideSearchInput);
   responsePromise.success(function(data, status, headers, config) {
-    $scope.sourceCity = data.basic.SourceCity;
-    $scope.destinationCity = data.basic.DestinationCity;
-    $scope.distance = data.basic.Distance;
-    $scope.timeinMinutes = data.basic.TimeinMinutes;
-    $scope.unit = data.basic.Unit;
-    $scope.totalResult = data.totalAvailabilty;
-    $scope.avialableResult = data.showResults;    
-    $scope.avialableRideList = data.availability;
+	  $scope.avialableRideList = data.searchdata;
     console.log(data);
     
   });
   responsePromise.error(function(data, status, headers, config) {
     alert("AJAX failed!");
   });
-  console.log()
+  
+  $scope.applyride = function (rideId){
+	  var inputData = {};
+	  inputData.userid = user.currentUser.id;
+	  inputData.rideid = rideId;
+	  
+	  var responsePromise = $http.post("../services/index.php/ride/apply",inputData);
+	  responsePromise.success(function(data, status, headers, config) {
+	    alert(JSON.stringify(data));
+	  });
+  }
   
 });

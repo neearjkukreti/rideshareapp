@@ -20,7 +20,7 @@ app.controller('homeController', function($scope,ride) {
     /*Serach button click from homepage*/    
     $scope.search = function() {
       rideSearchInput = {'from':[$scope.result1,$scope.details1],'to':[$scope.result2,$scope.details1]};
-      window.location='#/search';
+      window.location='#/search/delhi?destination=dehradun';
     }
     
     /*Init Carousal*/
