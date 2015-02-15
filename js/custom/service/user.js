@@ -27,11 +27,36 @@ app.service("user",function user(Facebook, $http,$rootScope){
   this.getCurrentUser = function () {
     return this.currentUser;
   };
-  this.offlinelogin = function(){
-	  this.currentUser = JSON.parse('{"id":"18","firstname":"Neeraj","lastname":"Kukreti","gender":"Female","fb_id":"10203200159989914","email_id":"neeraj.kr.kukreti@gmail.com","mobile":"9717244211","dob":"2014-12-12","privacy":"1","lang_known":"Hindi, English, Math","chat":"2","music":"2","smoking":"0","food":"1","pet":"1"}');
-      this.isConnected = true;
-      this.islogin = true;
-      this.firstTime = true;
+  this.offlinelogin = function($scope){
+	  _self = this;
+      /*Logged in with FB, check for user in app DB*/
+	  response = '{"id":"10203200159989914","email":"neerajdoonmail@yahoo.com","first_name":"Neeraj","gender":"male","last_name":"Kukreti","link":"https://www.facebook.com/app_scoped_user_id/10203200159989914/","locale":"en_US","name":"Neeraj Kukreti","timezone":5.5,"updated_time":"2015-02-08T06:45:14+0000","verified":true}';
+      var responsePromise = $http.post("../services/index.php/user",JSON.parse(response));
+      
+      responsePromise.success(function(data, status, headers, config) {
+        if(data.status == 'USER_CREATED'){
+          _self.firstTime = true;
+        }
+        else _self.firstTime = false;
+        /*Persist user in local storage*/
+        _self.saveUser(data.userObject,data.status);
+        
+        /*Update user service singleton*/
+        _self.currentUser = data.userObject;
+        
+        if(_self.firstTime){
+          $scope.loadUserDashboard();
+        }
+        else{
+          $scope.logged = true;
+        }
+          console.log(_self.currentUser);
+          //new user
+          //window.location = '#/userDashboard';
+      });
+      responsePromise.error(function(data, status, headers, config) {
+        alert("AJAX failed!");
+      });
   };
   
   this.initUserFromSession = function(){   
@@ -44,7 +69,6 @@ app.service("user",function user(Facebook, $http,$rootScope){
   	  }	
   	}
     catch(e){}
-    //this.offlinelogin();
   };
   
   this.logout = function(){
@@ -60,6 +84,8 @@ app.service("user",function user(Facebook, $http,$rootScope){
   };
   
   this.login = function($scope) {
+	  this.offlinelogin($scope);
+	  return;
       _self = this;
       
       Facebook.login(function(response) {
