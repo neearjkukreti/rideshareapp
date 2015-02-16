@@ -1,5 +1,7 @@
 app.controller('homeController', function($scope,ride) {
-	$scope.recentRides = [];
+    $scope.recentRides = [];
+    $scope.dt = new Date();
+    $scope.minDate = new Date();
 	
 	/*Source Location*/
     $scope.result1 = '';
@@ -32,5 +34,20 @@ app.controller('homeController', function($scope,ride) {
     /*fetch recent rides and update view*/
     ride.fetchRecentRides($scope);
     
+
+   $scope.clear = function () {
+     $scope.dt = null;
+   };
+
+   $scope.open = function($event) {
+     $event.preventDefault();
+     $event.stopPropagation();
+     $scope.opened = true;
+   };
+
+   $scope.dateOptions = {
+     formatYear: 'yy',
+     startingDay: 1
+   };
     
 });

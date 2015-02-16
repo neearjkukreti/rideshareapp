@@ -44,12 +44,16 @@
     <div class=" col-md-3 form-group move-down">
         <input type="text" id="Autocomplete" class="form-control" ng-autocompletemap="result2" details="details2" options="options2"/>
     </div>
-    <div class="col-md-3"><div class="input-group date" id="datetimepicker1">
-                    <input type="text" class="form-control">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-                </div>
+    <div class="col-md-3"><p class="input-group">
+              <input type="text" class="form-control" datepicker-popup="dd-MMM-yyyy" 
+                ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" 
+                datepicker-options="dateOptions" date-disabled="disabled(date, mode)" 
+                ng-required="true" close-text="Close" />
+              
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>                </div>
                 <div class="col-md-2">
                 <button type="button" class="btn btn-danger" ng-click="search()">Search</button>
                 </div>
