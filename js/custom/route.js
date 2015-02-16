@@ -12,7 +12,7 @@ app.config(function($stateProvider, $urlRouterProvider,FacebookProvider) {
                     controller: 'about'
         })
         .state('search',{
-                    url:'/search/:source?destination',
+                    url:'/search?source&destination&searchdate',
                     templateUrl:'view/search.html',
                     controller: 'search'
         })

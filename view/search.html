@@ -8,7 +8,7 @@
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li>{{resultCount}} Rides Avialable between {{sourceCity}} - {{destinationCity}}
+                    <li>{{resultCount}} Rides Avialable between {{rideSearchInput.source}} - {{rideSearchInput.destination}}
                     </li>
                 </ol>
             </div>
@@ -24,11 +24,10 @@
                 </map>
             </div>
             <div class="col-md-6">
-            <button type="button" class="btn btn-primary leftAlign {{nextButton}}" ng-click="sample()">Sample Button</button>
-                <h3>Source City: {{sourceCity}} </h3>
-                <h3>Destination: {{destinationCity}} </h3>
-                <h3>Travel Date: 22 June, Friday 2015</h3>
-                <h3>Avg Fair: Rs 786</h3>
+                <h3>Source City: {{rideSearchInput.source}} </h3>
+                <h3>Destination: {{rideSearchInput.destination}} </h3>
+                <h3>Travel Date: {{rideSearchInput.searchdate}}</h3>
+                <h3>Avg Fair: Rs 786x</h3>
             </div>
         </div>
         <!-- /.row -->

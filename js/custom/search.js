@@ -1,64 +1,47 @@
 app.controller('search', function($scope, $stateParams, $http, user) {
-  /*$scope.sample = function() {
-    alert('sample method called');
-    console.log('sample method called');
-  }*/   
-  if(typeof(Storage) !== "undefined") {
-      localStorage.setItem("rideSearchInput", rideSearchInput);
-  }
-      
-  try{
-    $scope.sourceCity = rideSearchInput.from[0];
-    $scope.destinationCity = rideSearchInput.to[0];
-  }
-  catch(e){
-    /*If coming directly hitting serach, re-direct to homepage*/
-    if(typeof(Storage) !== "undefined") {
-      if(localStorage.getItem("rideSearchInput")){
-        rideSearchInput = localStorage.getItem("rideSearchInput");
-        $scope.sourceCity = rideSearchInput.from[0];
-        $scope.destinationCity = rideSearchInput.to[0]; 
-      }
-    }
-    else window.location='#/';
-  }
 
-  /*$('[data-toggle=offcanvas]').click(function() {
-    $('.row-offcanvas').toggleClass('active');
-  });*/
+    console.log($stateParams.source + $stateParams.destination + $stateParams.searchdate);
 
-  console.log($stateParams.source + $stateParams.destination);
-  
-  $scope.sourceLat = rideSearchInput.to[1].geometry.location.k;
-  $scope.sourceLog = rideSearchInput.to[1].geometry.location.D;
-  
-  $scope.destLat = rideSearchInput.from[1].geometry.location.k;
-  $scope.destLog = rideSearchInput.from[1].geometry.location.D;
-  
-  $scope.zoom = 5;
-  $scope.resultCount = 5;
-  console.log(rideSearchInput);
-  
-  
-  var responsePromise = $http.get("../services/index.php/search",rideSearchInput);
-  responsePromise.success(function(data, status, headers, config) {
-	  $scope.avialableRideList = data.searchdata;
-    console.log(data);
+    $scope.sourceLat = 1;//rideSearchInput.to[1].geometry.location.k;
+    $scope.sourceLog = 1;//rideSearchInput.to[1].geometry.location.D;
+
+    $scope.destLat = 1;//rideSearchInput.from[1].geometry.location.k;
+    $scope.destLog = 1;//rideSearchInput.from[1].geometry.location.D;
+
+    $scope.zoom = 5;
+    $scope.resultCount = 0;
+
+    var rideSearchInput = {};
     
-  });
-  responsePromise.error(function(data, status, headers, config) {
-    alert("AJAX failed!");
-  });
-  
-  $scope.applyride = function (rideId){
-	  var inputData = {};
-	  inputData.userid = user.currentUser.id;
-	  inputData.rideid = rideId;
-	  
-	  var responsePromise = $http.post("../services/index.php/ride/apply",inputData);
-	  responsePromise.success(function(data, status, headers, config) {
-	    alert(JSON.stringify(data));
-	  });
-  }
-  
+    rideSearchInput.source = $stateParams.source;
+    rideSearchInput.destination = $stateParams.destination;
+    
+    if($stateParams.searchdate){
+        rideSearchInput.searchdate = $stateParams.searchdate;
+    }
+    else{
+        rideSearchInput.searchdate = "";
+    }
+    
+    $scope.rideSearchInput = rideSearchInput;
+    var responsePromise = $http.get("../services/index.php/search",rideSearchInput);
+    responsePromise.success(function(data, status, headers, config) {
+        $scope.avialableRideList = data.searchdata;
+        $scope.resultCount = $scope.avialableRideList.length;
+    });
+    responsePromise.error(function(data, status, headers, config) {
+        alert("AJAX failed!");
+    });
+
+    $scope.applyride = function (rideId){
+        var inputData = {};
+        inputData.userid = user.currentUser.id;
+        inputData.rideid = rideId;
+
+        var responsePromise = $http.post("../services/index.php/ride/apply",inputData);
+        responsePromise.success(function(data, status, headers, config) {
+            alert(JSON.stringify(data));
+        });
+    }
+
 });
