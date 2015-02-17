@@ -67,7 +67,7 @@
 </li>-->
                         <li style="margin-top: 7px;">
                             <button data-ng-show="!logged" class="btn btn-facebook" ng-click="loginUser()" ><i class="fa fa-facebook"></i> | Login</button>
-                            
+
                             <button data-ng-show="logged"  class="btn btn-facebook" ng-click="postRide()"><span class="glyphicon glyphicon-th-large"></span> | Dashboard</button>
                             <button data-ng-show="logged"  class="btn btn-facebook" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> | Logout</button>
                         </li>
@@ -78,6 +78,17 @@
             <!-- /.container -->
         </nav>
         <ui-view></ui-view>
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="row" style="text-align: center;">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; It's Desi (<a href="#">www.itisdesi.com</a>)</p>
+                </div>
+            </div>
+        </footer>
+
         <!-- jQuery -->
         <script src="js/jquery.js"></script>
         <script src="js/custom/main.js"></script>

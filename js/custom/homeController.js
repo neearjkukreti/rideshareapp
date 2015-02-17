@@ -4,7 +4,7 @@ app.controller('homeController', function($scope,ride) {
     $scope.minDate = new Date();
     $scope.showButtonBar = false;
     $scope.showWeekNumbers = false;
-    
+
     /*Source Location*/
     $scope.result1 = '';
     $scope.options1 = {
@@ -20,7 +20,7 @@ app.controller('homeController', function($scope,ride) {
         types: '(cities)'
     };
     $scope.details2 = '';   
-    
+
     /*Serach button click from homepage*/    
     $scope.search = function() {
         rideSearchInput = {'from':[$scope.result1,$scope.details1],'to':[$scope.result2,$scope.details1]};
@@ -30,11 +30,11 @@ app.controller('homeController', function($scope,ride) {
         }
         catch(e){
         }
-        
+
         if($scope.result1.length !=0 && $scope.result2.length !=0 
-            && $('#from').val() == $scope.result1 && $('#to').val() == $scope.result2
+           && $('#from').val() == $scope.result1 && $('#to').val() == $scope.result2
           ){
-            
+
             window.location='#/search?source='+$scope.result1+'&destination='+$scope.result2+'&searchdate=' + searchDate;
         }
         else alert("Invalid Search Input");
@@ -65,5 +65,12 @@ app.controller('homeController', function($scope,ride) {
         startingDay: 1,
         showWeeks:'false'
     };
+
+
+    $scope.myInterval = 5000;
+    var slides = $scope.slides = [];
+    slides.push({image: 'img/bg1.png', text: 'Image 1'});
+    slides.push({image: 'img/bg2.png', text: 'Image 2'});
+    slides.push({image: 'img/bg3.png', text: 'Image 3'});
 
 });

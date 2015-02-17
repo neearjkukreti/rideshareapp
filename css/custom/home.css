@@ -144,3 +144,23 @@ input.ng-invalid.ng-dirty {
     width: 350px;
     opacity: .90;
 }
+
+#myCarousel{
+    box-shadow: 8px 5px 7px #140E30;
+}
+#myCarousel{
+        height: 400px;
+}
+
+#recentRide{
+    background-color: #D28F00;
+    border-color: #D28F00;
+}
+.thumbnail {
+float: left;
+margin-right: 16px;
+}
+#recentRideContainer{
+    height: 600px;
+    overflow: auto;
+}
