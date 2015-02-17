@@ -164,3 +164,19 @@ margin-right: 16px;
     height: 600px;
     overflow: auto;
 }
+#searchBoxFilter .panel{
+	height: 65px;
+}
+.searchFilter{
+    margin-top: 10px;
+    padding: 8px 15px;
+    list-style: none;
+    background-color: #86BE3E;
+    border-radius: 4px;
+}
+.paddingtop{
+    padding-top: 8px;
+}
+.centertext{
+    text-align: center;
+}
