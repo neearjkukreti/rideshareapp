@@ -4,6 +4,7 @@ app.controller('homeController', function($scope,ride) {
     $scope.minDate = new Date();
     $scope.showButtonBar = false;
     $scope.showWeekNumbers = false;
+    
     /*Source Location*/
     $scope.result1 = '';
     $scope.options1 = {
@@ -19,7 +20,7 @@ app.controller('homeController', function($scope,ride) {
         types: '(cities)'
     };
     $scope.details2 = '';   
-
+    
     /*Serach button click from homepage*/    
     $scope.search = function() {
         rideSearchInput = {'from':[$scope.result1,$scope.details1],'to':[$scope.result2,$scope.details1]};
@@ -29,7 +30,14 @@ app.controller('homeController', function($scope,ride) {
         }
         catch(e){
         }
-        window.location='#/search?source='+$scope.result1+'&destination='+$scope.result2+'&searchdate=' + searchDate;
+        
+        if($scope.result1.length !=0 && $scope.result2.length !=0 
+            && $('#from').val() == $scope.result1 && $('#to').val() == $scope.result2
+          ){
+            
+            window.location='#/search?source='+$scope.result1+'&destination='+$scope.result2+'&searchdate=' + searchDate;
+        }
+        else alert("Invalid Search Input");
     }
 
     /*Init Carousal*/
@@ -49,7 +57,7 @@ app.controller('homeController', function($scope,ride) {
     $scope.open = function($event) {
         $event.preventDefault();
         $event.stopPropagation();
-        $scope.opened = true;
+        $scope.opened = !$scope.opened;
     };
 
     $scope.dateOptions = {
