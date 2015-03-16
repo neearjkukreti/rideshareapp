@@ -1,0 +1,48 @@
+<link href="css/custom/profile.css" rel="stylesheet">
+<!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{{userObject.firstname}} Dashboard
+                <img ng-src="http://graph.facebook.com/{{userObject.fb_id}}/picture?width=50&amp;height=50" alt="User photo" img-fallback="">                 
+                    <small></small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">About</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Intro Content -->
+        <div class="row">
+            <div class="col-md-3">
+          <ul class="nav nav-pills nav-stacked" id="leftTabs">                                                                                
+            <li role="presentation" ng-class="getClass('/offerRide')">                                                                                         
+              <a href="#{{currentPath}}/offerRide">Offer Ride</a>                                                                             
+            </li>                                                                                
+            <li role="presentation"  ng-class="getClass('/myRide')">                                                                                         
+              <a href="#{{currentPath}}/myRide">My Rides</a>                                                                             
+            </li>                                                                                
+            <li role="presentation"  ng-class="getClass('/profile')">                                                                                         
+              <a href="#{{currentPath}}/profile">Profile</a>                                                                             
+            </li>                                                                             
+            <li role="presentation"  ng-class="getClass('/messages')">                                                                                         
+              <a href="#{{currentPath}}/messages">Messages</a>                                                                             
+            </li>                                                                                    
+          </ul>
+            </div>
+            <div class="col-md-9">
+				<div class="container full_width"><ui-view/></div>
+            </div>
+        </div>
+
+        <!-- /.row -->
+
+        <hr>
+    </div>
+    <!-- /.container -->

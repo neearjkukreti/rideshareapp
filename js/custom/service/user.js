@@ -1,5 +1,5 @@
 app.service("user",function user(Facebook, $http,$rootScope){
-	this.isConnectedtoFb = false;
+  this.isConnectedtoFb = false;
   this.islogin = false;
   this.firstTime = false;
   
@@ -27,11 +27,42 @@ app.service("user",function user(Facebook, $http,$rootScope){
   this.getCurrentUser = function () {
     return this.currentUser;
   };
-
+  this.offlinelogin = function($scope){
+	  _self = this;
+      /*Logged in with FB, check for user in app DB*/
+	  response = '{"id":"10203200159989914","email":"neerajdoonmail@yahoo.com","first_name":"Neeraj","gender":"male","last_name":"Kukreti","link":"https://www.facebook.com/app_scoped_user_id/10203200159989914/","locale":"en_US","name":"Neeraj Kukreti","timezone":5.5,"updated_time":"2015-02-08T06:45:14+0000","verified":true}';
+      var responsePromise = $http.post("../services/index.php/user",JSON.parse(response));
+      
+      responsePromise.success(function(data, status, headers, config) {
+        if(data.status == 'USER_CREATED'){
+          _self.firstTime = true;
+        }
+        else _self.firstTime = false;
+        /*Persist user in local storage*/
+        _self.saveUser(data.userObject,data.status);
+        
+        /*Update user service singleton*/
+        _self.currentUser = data.userObject;
+        
+        if(_self.firstTime){
+          $scope.loadUserDashboard();
+        }
+        else{
+          $scope.logged = true;
+        }
+          console.log(_self.currentUser);
+          //new user
+          //window.location = '#/userDashboard';
+      });
+      responsePromise.error(function(data, status, headers, config) {
+        alert("AJAX failed!");
+      });
+  };
+  
   this.initUserFromSession = function(){   
   	try{
       if(localStorage.currentUser){
-  			this.currentUser = JSON.parse(localStorage.currentUser);
+  		this.currentUser = JSON.parse(localStorage.currentUser);
         this.isConnected = true;
         this.islogin = true;
         this.firstTime = localStorage.firstTime == 'true'?true:false;
@@ -47,7 +78,14 @@ app.service("user",function user(Facebook, $http,$rootScope){
     this.islogin = false;
   };
   
+  this.saveUserCar = function(cars){
+	  this.currentUser.cars = cars;
+	  localStorage.firstTime = JSON.stringify(this.currentUser);
+  };
+  
   this.login = function($scope) {
+	  this.offlinelogin($scope);
+	  return;
       _self = this;
       
       Facebook.login(function(response) {

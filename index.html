@@ -1,101 +1,115 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>Share Ride</title>
+        <title>Share Ride</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">    
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">    
 
-    <!-- Custom CSS -->
-    <link href="css/modern-business.css" rel="stylesheet">
-    <link href="css/custom/home.css" rel="stylesheet">
-    <link href="css/custom/filter.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="css/modern-business.css" rel="stylesheet">
+        <link href="css/custom/home.css" rel="stylesheet">
+        <link href="css/custom/filter.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-    <script src="http://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.min.js"></script>
-    <script src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script>
-    <script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
-	<script src="js/ngProgress.js"></script>
-	<link rel="stylesheet" href="http://victorbjelkholm.github.io/ngProgress/ngProgress.css">
-	
-    <script src="js/ngAutocompleteMap.js"></script>     
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+        <script src="http://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.min.js"></script>
+        <script src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script>
+        <script src="https://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+        <script src="js/ngProgress.js"></script>
+        <link rel="stylesheet" href="http://victorbjelkholm.github.io/ngProgress/ngProgress.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <script src="js/ngAutocompleteMap.js"></script>     
 
-</head>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 
-<body ng-controller="mainCtrl">
-    <!-- div to blur background while switching views -->
-    <div id="loading"></div>
-    
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">LendARide.com >></a>
+    </head>
+
+    <body ng-controller="mainCtrl">
+        <!-- div to blur background while switching views -->
+        <div id="loading"></div>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">LendARide.com</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li>
+<a href="#/findride">Offer Ride</a>
+</li>-->
+                        <li style="margin-top: 7px;">
+                            <button data-ng-show="!logged" class="btn btn-facebook" ng-click="loginUser()" ><i class="fa fa-facebook"></i> | Login</button>
+
+                            <button data-ng-show="logged"  class="btn btn-facebook" ng-click="postRide()"><span class="glyphicon glyphicon-th-large"></span> | Dashboard</button>
+                            <button data-ng-show="logged"  class="btn btn-facebook" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> | Logout</button>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <!--<li>
-                        <a href="#/findride">Offer Ride</a>
-                    </li>-->
-                    <li><button type="button" class="btn btn-primary leftAlign"  data-ng-show="!logged" ng-click="loginUser()">Login with Facebook</button>
-                          <button type="button" class="btn btn-primary leftAlign"  data-ng-show="logged" ng-click="postRide()">Post Ride</button>
-                          <button type="button" class="btn btn-primary leftAlign"  data-ng-show="logged" ng-click="logout()">Logout</button>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-    <ui-view></ui-view>
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <script src="js/custom/main.js"></script>
-    <script src="js/custom/service/user.js"></script>
-    <script src="js/custom/service/ride.js"></script>
-    <script src="js/custom/service/myride.js"></script>
-    <script src="js/custom/route.js"></script>
-    <script src="js/custom/search.js"></script>
-    <script src="js/custom/homeController.js"></script>
-    <script src="js/custom/rideDetail.js"></script>
-    <script src="js/custom/about.js"></script>
-    <script src="js/custom/userDashboard.js"></script>
-    <script src="js/custom/userDashboard.myRide.js"></script>
-    <script src="js/custom/userDashboard.offerRide.js"></script>
-    <script src="js/custom/userDashboard.messages.js"></script>
-    <script src="js/custom/userDashboard.profile.js"></script>
-    
+            <!-- /.container -->
+        </nav>
+        <ui-view></ui-view>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-</body>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row" style="text-align: center;">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; It's Desi (<a href="#">www.itisdesi.com</a>)</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <script src="js/custom/main.js"></script>
+        <script src="js/custom/service/user.js"></script>
+        <script src="js/custom/service/ride.js"></script>
+        <script src="js/custom/service/myride.js"></script>
+        <script src="js/custom/service/car.js"></script>
+        <script src="js/custom/route.js"></script>
+        <script src="js/custom/search.js"></script>
+        <script src="js/custom/homeController.js"></script>
+        <script src="js/custom/rideDetail.js"></script>
+        <script src="js/custom/about.js"></script>
+        <script src="js/custom/userDashboard.js"></script>
+        <script src="js/custom/userDashboard.myRide.js"></script>
+        <script src="js/custom/userDashboard.offerRide.js"></script>
+        <script src="js/custom/userDashboard.messages.js"></script>
+        <script src="js/custom/userDashboard.profile.js"></script>
+
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+    </body>
 
 </html>

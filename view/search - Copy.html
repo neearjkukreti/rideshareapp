@@ -1,0 +1,119 @@
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Search Result
+                <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>{{resultCount}} Rides Avialable between {{rideSearchInput.source}} - {{rideSearchInput.destination}}
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->       
+    <div class="panel-collapse collapse in panel-success" >
+        <div class="panel-body" ><span >
+            This content is straight in the template.
+            </span></div>
+    </div>
+    <div class="container-fluid"  id='searchBoxFilter'>
+        <div class="container" id='searchBox'>
+            <div class="panel panel-success">
+                <div class="panel-body">
+
+                    <div class="row">    
+
+                        <div class=" col-md-1 form-group move-down">
+                            Search
+                        </div>
+
+                        <div class=" col-md-3 form-group move-down">
+                            <input type="text" id="from" ng-model="from" class="form-control" 
+                                   ng-change="validateInput()" ng-autocompletemap="result1" details="details1" options="options1"/>
+                        </div>
+                        <div class=" col-md-3 form-group move-down">
+                            <input type="text" id="to" ng-model="to" class="form-control"
+                                   ng-autocompletemap="result2" details="details2" options="options2"/>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="input-group">
+                                <input type="text" class="form-control" datepicker-popup="dd-MMM-yyyy" 
+                                       ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" 
+                                       datepicker-options="dateOptions" close-text="Close" show-weeks="false" />
+
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>                
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-danger" ng-click="search()" ng-disabled="false">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>    
+    </div>
+    <!-- /.row -->
+    <!-- Team Members -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Avialable Rides</h2>
+        </div>
+        <div class="col-md-3 text-center" ng-repeat="ride in avialableRideList">
+            <a href='#/rideDetail/{{ride.id}}'><div class="thumbnail">
+                <img class="img-responsive" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/p160x160/10891851_10203311183765439_6962803107728809123_n.jpg?oh=ffafeee7c1291c6ed228b8d4a9ec1e59&oe=555DD419&__gda__=1433340040_4a1a3ea03661c4097b968e5eec7f41e2" alt="">
+                <div class="caption">
+                    <h3>{{ride.firstname}} <br>
+                        <small>{{ride.available_seats}} </small>
+                    </h3>
+                    <p>{{ride.price}}</p>
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                        </li>
+                        <li><button ng-click='applyride(ride.id)' >Apply </button></li>
+                    </ul>
+                </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Recent Rides for given filter -->
+            <h2 class="page-header">Recent Rides </h2>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+</div>
+<!-- /.container -->

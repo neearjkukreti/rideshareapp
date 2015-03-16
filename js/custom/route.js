@@ -12,12 +12,12 @@ app.config(function($stateProvider, $urlRouterProvider,FacebookProvider) {
                     controller: 'about'
         })
         .state('search',{
-                    url:'/search',
+                    url:'/search?source&destination&searchdate',
                     templateUrl:'view/search.html',
                     controller: 'search'
         })
         .state('rideDetail',{
-                    url:'/rideDetail',
+                    url:'/rideDetail/:id',
                     templateUrl:'view/rideDetail.html',
                     controller: 'rideDetail'
         })
@@ -54,35 +54,3 @@ app.config(function($stateProvider, $urlRouterProvider,FacebookProvider) {
         
         $urlRouterProvider.otherwise('/');       
 });
-
-/*app.config(function($routeProvider,FacebookProvider) {
-    FacebookProvider.init("823509664375931");
-    $routeProvider
-        .when('/', {
-            templateUrl: 'view/home.html',
-            controller: 'homeController'
-        })
-        .when('/about', {
-            templateUrl: 'view/about.html',
-            controller: 'about'
-        })
-        .when('/search', {
-            templateUrl: 'view/search.html',
-            controller: 'search'
-        })
-        .when('/rideDetail', {
-            templateUrl: 'view/rideDetail.html',
-            controller: 'rideDetail'
-        })
-        .when('/postRide', {
-            templateUrl: 'view/postRide.html',
-            controller: 'postRide'
-        })
-        .when('/userDashboard', {
-            templateUrl: 'view/userDashboard.html',
-            controller: 'userDashboard'
-        })
-        .otherwise({
-            redirectTo: '/',
-        });
-});*/

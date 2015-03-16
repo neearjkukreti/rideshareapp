@@ -26,7 +26,7 @@ body {
 /* Home Page Carousel */
 
 header.carousel {
-    height: 40%;
+    height: 400px;
 }
 
 header.carousel .item,
@@ -90,4 +90,11 @@ footer {
     header.carousel .carousel {
         height: 70%;
     }
+}
+element.style {
+}
+.panel-default>.panel-heading {
+color: #F7FD12;
+background-color: #379B20;
+border-color: #379B20;
 }
