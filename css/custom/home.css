@@ -213,10 +213,10 @@ margin-right: 16px;
 .pull-tile-right {
     float: right;
 }
-.fade.in{
+/*.fade.in{
     width: 100%;
     height: 100%;
-}
+}*/
 
 .tile-text {
     font-size: 15px;
