@@ -204,9 +204,11 @@ margin-right: 16px;
     cursor:pointer;
     border: 5px;
     border-style: solid;
+    background-image: none;
 }
 .tile:hover{
     background-color: GREEN;
+    background-image:none;
 }
 .pull-tile-right {
     float: right;
@@ -217,10 +219,14 @@ margin-right: 16px;
 }
 
 .tile-text {
-    /*margin: 19px;*/
-    padding-top: 25px;
-    font-size: 20px;
-    color: cornsilk;
+    font-size: 15px;
+    color: white;
+    background: rgb(24, 42, 22);
+    /*opacity: .9;*/
+    text-align: center;
+    margin-top: 68px;
+    border-style: outset;
+    border-color: #765BF2;
 }
 .dashboard-bg-color{
     background-color:#F2FFFA;
@@ -265,4 +271,16 @@ margin-right: 16px;
 }
 .yellow-background{
     background:#DD8F17 !important;
+}
+.myride{
+background-image: url('../../img/car.jpg');
+}
+.profile{
+background-image: url('../../img/profile.jpg');
+}
+.message{
+background-image: url('../../img/message.jpg');
+}
+.offerride{
+    background-image: url('../../img/offerride.jpg');
 }
