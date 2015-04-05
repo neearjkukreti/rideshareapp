@@ -49,6 +49,8 @@ app.controller('homeController', function($scope,ride) {
     /*fetch recent rides and update view*/
     ride.fetchRecentRides($scope);
 
+    ride.fetchFrequentRides($scope);
+
 
     $scope.clear = function () {
         $scope.dt = null;

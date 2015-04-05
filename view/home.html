@@ -126,6 +126,18 @@ Joy of travelling with people and make friends.
                 <div class="panel-heading">
                     <h4><i class="fa fa-fw fa-gift"></i> Frequent Flyers</h4>
                 </div>
+                <div ng-repeat='ride in frequentRides'>
+                    <div class="panel-body col-md-4">
+                        <img class="img-responsive img-portfolio img-hover thumbnail" src="http://placehold.it/130x150" alt="">
+                        <h3>{{ride.firstname}}</h3>
+                        <ul>
+                            <li>CO2 Saved: 5Kg</li>
+                            <li>Rides Offered: 10</li>
+                            <li>Rides Taken : 5</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--
                 <div class="panel-body col-md-4">
                     <img class="img-responsive img-portfolio img-hover thumbnail" src="http://placehold.it/130x150" alt="">
                     <h3>Neeraj Kukreti</h3>
@@ -153,6 +165,7 @@ Joy of travelling with people and make friends.
                         <li>Rides Taken : 9</li>
                     </ul>
                 </div>
+                -->
             </div>
         </div>
         <div class="col-md-4">

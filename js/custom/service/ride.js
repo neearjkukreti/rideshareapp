@@ -20,8 +20,17 @@ app.service("ride", function ride($http) {
     
     this.fetchRecentRides = function ($scope) {
     	var responsePromise = $http.get("../services/index.php/search");
+        var responsePromise = $http.post("../rideshareservice/index.php/search");
     	responsePromise.success(function (data, status, headers, config) {
     		$scope.recentRides = data.searchdata;
+        });
+    }
+
+    this.fetchFrequentRides = function ($scope) {
+        var responsePromise = $http.get("../services/index.php/ride/topthreeride");
+        //var responsePromise = $http.post("../rideshareservice/index.php/ride/topthreeride");
+        responsePromise.success(function (data, status, headers, config) {
+            $scope.frequentRides = data.rides;
         });
     }
 
